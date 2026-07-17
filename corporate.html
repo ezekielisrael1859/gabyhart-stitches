@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Corporate &amp; Bulk Orders — GABYHART STITCHES</title>
+  <meta name="description" content="Bulk and corporate tailoring for churches, event entourages, and offices. GABYHART STITCHES, Ekpoma.">
+
+  <link rel="icon" href="images/favicon.png" type="image/png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <div class="site-header__inner">
+      <a href="index.html" class="logo" aria-label="GABYHART STITCHES home">
+        <span class="logo__mark">GH</span>
+        <span class="logo__text">GABYHART STITCHES</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-overlay" aria-label="Open menu">
+        <span class="nav-toggle__line"></span>
+        <span class="nav-toggle__line"></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="nav-overlay" id="nav-overlay" aria-hidden="true">
+    <ul class="nav-overlay__list">
+      <li><a href="index.html" class="nav-overlay__link">Home</a></li>
+      <li><a href="about.html" class="nav-overlay__link">About</a></li>
+      <li><a href="gallery.html" class="nav-overlay__link">Gallery</a></li>
+      <li><a href="shop.html" class="nav-overlay__link">Shop</a></li>
+      <li><a href="pricing.html" class="nav-overlay__link">Pricing</a></li>
+      <li><a href="booking.html" class="nav-overlay__link">Book a Fitting</a></li>
+      <li><a href="size-guide.html" class="nav-overlay__link">Size Guide</a></li>
+      <li><a href="fabric.html" class="nav-overlay__link">Fabric</a></li>
+      <li><a href="corporate.html" class="nav-overlay__link" aria-current="page">Corporate</a></li>
+      <li><a href="contact.html" class="nav-overlay__link">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main id="main-content">
+
+    <section class="page-hero page-hero--corporate">
+      <div class="page-hero__monogram-texture" aria-hidden="true"></div>
+      <p class="eyebrow">Bulk &amp; Corporate</p>
+      <h1 class="page-hero__title">Corporate &amp; Bulk Orders</h1>
+      <p class="page-hero__intro">
+        Uniforms for offices, aso ebi for event entourages, matching sets for
+        churches — outfitted as one, fitted as individuals.
+      </p>
+    </section>
+
+    <!-- ============ WHO WE SERVE ============ -->
+    <section class="corporate-audience">
+      <p class="eyebrow">Who This Is For</p>
+      <h2>Built for Groups</h2>
+
+      <div class="corporate-audience__grid">
+        <div class="corporate-audience-card">
+          <img src="images/gallery-corporate-02.jpg" alt="Church uniform tailoring, bulk order" loading="lazy">
+          <h3>Churches</h3>
+          <p>Matching uniforms for choirs, ushers, and church groups — consistent fabric and fit across every member.</p>
+        </div>
+        <div class="corporate-audience-card">
+          <img src="images/gallery-weddings-02.jpg" alt="Aso ebi tailoring for wedding entourage" loading="lazy">
+          <h3>Event Entourages</h3>
+          <p>Aso ebi and coordinated outfits for wedding parties, birthdays, and celebrations.</p>
+        </div>
+        <div class="corporate-audience-card">
+          <img src="images/gallery-corporate-01.jpg" alt="Corporate uniform tailoring, office set" loading="lazy">
+          <h3>Offices</h3>
+          <p>Professional uniform sets for staff — sized individually, styled consistently.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section class="corporate-process">
+      <p class="eyebrow">How It Works</p>
+      <h2>From Order to Delivery</h2>
+
+      <ol class="corporate-process__list">
+        <li>
+          <h3>Tell us the scope</h3>
+          <p>Number of people, garment type, and occasion or deadline.</p>
+        </li>
+        <li>
+          <h3>We confirm fabric &amp; pricing</h3>
+          <p>Bulk pricing depends on quantity and fabric choice — quoted per order.</p>
+        </li>
+        <li>
+          <h3>We collect measurements</h3>
+          <p>Either everyone comes in, or you send us a measurement sheet for the group.</p>
+        </li>
+        <li>
+          <h3>We deliver on schedule</h3>
+          <p>Every piece checked individually before handover — matching fabric, consistent finish.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ============ ENQUIRY FORM ============ -->
+    <section class="corporate-enquiry">
+      <h2>Request a Quote</h2>
+      <p>Tell us what you need and we'll get back to you with pricing and timeline.</p>
+
+      <form class="corporate-form" id="corporate-form" data-corporate-form novalidate>
+        <div class="booking-form__field">
+          <label for="org-name">Organization / Group name</label>
+          <input type="text" id="org-name" name="org_name" required>
+        </div>
+
+        <div class="booking-form__field">
+          <label for="contact-person">Contact person</label>
+          <input type="text" id="contact-person" name="contact_person" required>
+        </div>
+
+        <div class="booking-form__field">
+          <label for="corp-phone">Phone number</label>
+          <input type="tel" id="corp-phone" name="phone" required>
+        </div>
+
+        <div class="booking-form__grid">
+          <div class="booking-form__field">
+            <label for="group-size">Number of people</label>
+            <input type="number" id="group-size" name="group_size" min="1">
+          </div>
+          <div class="booking-form__field">
+            <label for="garment-needed">Garment type</label>
+            <select id="garment-needed" name="garment_needed">
+              <option value="">Select an option</option>
+              <option value="senator">Senator</option>
+              <option value="kaftan">Kaftan</option>
+              <option value="agbada">Agbada</option>
+              <option value="shirt">Shirt</option>
+              <option value="mixed">Mixed / Various</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="booking-form__field">
+          <label for="corp-deadline">Needed by (date)</label>
+          <input type="date" id="corp-deadline" name="deadline">
+        </div>
+
+        <div class="booking-form__field">
+          <label for="corp-notes">Additional details</label>
+          <textarea id="corp-notes" name="notes" rows="4"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn--primary btn--full">Request a Quote</button>
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__monogram-texture" aria-hidden="true"></div>
+    <div class="site-footer__inner">
+      <a href="index.html" class="logo logo--footer">
+        <span class="logo__mark">GH</span>
+        <span class="logo__text">GABYHART STITCHES</span>
+      </a>
+      <p class="site-footer__tagline">Pay attention to details.</p>
+
+      <nav class="site-footer__nav">
+        <a href="about.html">About</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="shop.html">Shop</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="booking.html">Booking</a>
+        <a href="size-guide.html">Size Guide</a>
+        <a href="fabric.html">Fabric</a>
+        <a href="corporate.html">Corporate</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="site-footer__contact">
+        <a href="tel:+2340000000000">+234 000 000 0000</a>
+        <a href="mailto:hello@gabyhartstitches.com">hello@gabyhartstitches.com</a>
+        <p>Ekpoma, Nigeria</p>
+      </div>
+
+      <p class="site-footer__legal">&copy; <span data-current-year></span> GABYHART STITCHES. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/2340000000000" class="whatsapp-btn" id="whatsapp-btn" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+    <span class="whatsapp-btn__icon" aria-hidden="true"></span>
+  </a>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
