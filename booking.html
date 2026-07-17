@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Fitting — GABYHART STITCHES</title>
+  <meta name="description" content="Book a custom, made-to-order fitting with GABYHART STITCHES, Ekpoma. Pay attention to details.">
+
+  <link rel="icon" href="images/favicon.png" type="image/png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <div class="site-header__inner">
+      <a href="index.html" class="logo" aria-label="GABYHART STITCHES home">
+        <span class="logo__mark">GH</span>
+        <span class="logo__text">GABYHART STITCHES</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-overlay" aria-label="Open menu">
+        <span class="nav-toggle__line"></span>
+        <span class="nav-toggle__line"></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="nav-overlay" id="nav-overlay" aria-hidden="true">
+    <ul class="nav-overlay__list">
+      <li><a href="index.html" class="nav-overlay__link">Home</a></li>
+      <li><a href="about.html" class="nav-overlay__link">About</a></li>
+      <li><a href="gallery.html" class="nav-overlay__link">Gallery</a></li>
+      <li><a href="shop.html" class="nav-overlay__link">Shop</a></li>
+      <li><a href="pricing.html" class="nav-overlay__link">Pricing</a></li>
+      <li><a href="booking.html" class="nav-overlay__link" aria-current="page">Book a Fitting</a></li>
+      <li><a href="size-guide.html" class="nav-overlay__link">Size Guide</a></li>
+      <li><a href="fabric.html" class="nav-overlay__link">Fabric</a></li>
+      <li><a href="corporate.html" class="nav-overlay__link">Corporate</a></li>
+      <li><a href="contact.html" class="nav-overlay__link">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main id="main-content">
+
+    <section class="page-hero page-hero--booking">
+      <div class="page-hero__monogram-texture" aria-hidden="true"></div>
+      <p class="eyebrow">Made-to-Order</p>
+      <h1 class="page-hero__title">Book a Fitting</h1>
+      <p class="page-hero__intro">
+        Five steps to a piece built exactly for you.
+      </p>
+    </section>
+
+    <!-- ============ STEP PROGRESS ============ -->
+    <ol class="booking-progress" data-booking-progress>
+      <li class="booking-progress__step is-active" data-progress-step="1">
+        <span class="booking-progress__num">1</span>
+        <span class="booking-progress__label">Garment</span>
+      </li>
+      <li class="booking-progress__step" data-progress-step="2">
+        <span class="booking-progress__num">2</span>
+        <span class="booking-progress__label">Measurements</span>
+      </li>
+      <li class="booking-progress__step" data-progress-step="3">
+        <span class="booking-progress__num">3</span>
+        <span class="booking-progress__label">Fabric</span>
+      </li>
+      <li class="booking-progress__step" data-progress-step="4">
+        <span class="booking-progress__num">4</span>
+        <span class="booking-progress__label">Fitting Date</span>
+      </li>
+      <li class="booking-progress__step" data-progress-step="5">
+        <span class="booking-progress__num">5</span>
+        <span class="booking-progress__label">Your Details</span>
+      </li>
+    </ol>
+
+    <!-- ============ BOOKING FORM ============ -->
+    <form class="booking-form" id="booking-form" data-booking-form novalidate>
+
+      <!-- STEP 1: GARMENT -->
+      <fieldset class="booking-step is-active" data-booking-step="1">
+        <legend>What are we making?</legend>
+
+        <div class="booking-form__field">
+          <label for="garment-type">Garment type</label>
+          <select id="garment-type" name="garment_type" required>
+            <option value="">Select a garment</option>
+            <option value="senator">Senator</option>
+            <option value="kaftan">Kaftan</option>
+            <option value="agbada">Agbada</option>
+            <option value="shirt">Custom Shirt</option>
+            <option value="denim">Denim</option>
+            <option value="street">Street Wear</option>
+            <option value="other">Other / Not Sure</option>
+          </select>
+        </div>
+
+        <div class="booking-form__field">
+          <label for="occasion">Occasion</label>
+          <select id="occasion" name="occasion">
+            <option value="">Select an occasion</option>
+            <option value="wedding">Wedding</option>
+            <option value="corporate">Corporate / Office</option>
+            <option value="everyday">Everyday</option>
+            <option value="event">Event / Party</option>
+          </select>
+        </div>
+
+        <div class="booking-step__actions">
+          <button type="button" class="btn btn--primary" data-step-next>Next</button>
+        </div>
+      </fieldset>
+
+      <!-- STEP 2: MEASUREMENTS -->
+      <fieldset class="booking-step" data-booking-step="2">
+        <legend>Measurements</legend>
+        <p class="booking-step__note">
+          Not sure how to measure yourself? See the <a href="size-guide.html">size guide</a> first.
+        </p>
+
+        <div class="booking-form__grid">
+          <div class="booking-form__field">
+            <label for="chest">Chest (in)</label>
+            <input type="number" id="chest" name="chest" min="0" step="0.5">
+          </div>
+          <div class="booking-form__field">
+            <label for="waist">Waist (in)</label>
+            <input type="number" id="waist" name="waist" min="0" step="0.5">
+          </div>
+          <div class="booking-form__field">
+            <label for="hip">Hip (in)</label>
+            <input type="number" id="hip" name="hip" min="0" step="0.5">
+          </div>
+          <div class="booking-form__field">
+            <label for="shoulder">Shoulder (in)</label>
+            <input type="number" id="shoulder" name="shoulder" min="0" step="0.5">
+          </div>
+          <div class="booking-form__field">
+            <label for="sleeve">Sleeve Length (in)</label>
+            <input type="number" id="sleeve" name="sleeve" min="0" step="0.5">
+          </div>
+          <div class="booking-form__field">
+            <label for="height">Height (in)</label>
+            <input type="number" id="height" name="height" min="0" step="0.5">
+          </div>
+        </div>
+
+        <div class="booking-form__field">
+          <label for="measurement-notes">Notes on fit (optional)</label>
+          <textarea id="measurement-notes" name="measurement_notes" rows="3"></textarea>
+        </div>
+
+        <div class="booking-step__actions">
+          <button type="button" class="btn btn--secondary" data-step-prev>Back</button>
+          <button type="button" class="btn btn--primary" data-step-next>Next</button>
+        </div>
+      </fieldset>
+
+      <!-- STEP 3: FABRIC -->
+      <fieldset class="booking-step" data-booking-step="3">
+        <legend>Fabric</legend>
+
+        <div class="booking-form__field">
+          <label for="fabric-source">Fabric source</label>
+          <select id="fabric-source" name="fabric_source">
+            <option value="">Select an option</option>
+            <option value="sourced">GABYHART STITCHES sources the fabric</option>
+            <option value="own">I'll provide my own fabric</option>
+          </select>
+        </div>
+
+        <div class="booking-form__field">
+          <label for="fabric-notes">Fabric preferences (color, type, pattern)</label>
+          <textarea id="fabric-notes" name="fabric_notes" rows="3" placeholder="e.g. navy cotton, plain, breathable"></textarea>
+        </div>
+
+        <div class="booking-form__field booking-form__field--checkbox">
+          <input type="checkbox" id="monogram" name="monogram">
+          <label for="monogram">Add DTF monogramming</label>
+        </div>
+
+        <div class="booking-step__actions">
+          <button type="button" class="btn btn--secondary" data-step-prev>Back</button>
+          <button type="button" class="btn btn--primary" data-step-next>Next</button>
+        </div>
+      </fieldset>
+
+      <!-- STEP 4: FITTING DATE -->
+      <fieldset class="booking-step" data-booking-step="4">
+        <legend>Choose a Fitting Date</legend>
+
+        <div class="booking-form__field">
+          <label for="fitting-date">Preferred date</label>
+          <input type="date" id="fitting-date" name="fitting_date" required>
+        </div>
+
+        <div class="booking-form__field">
+          <label for="fitting-time">Preferred time</label>
+          <select id="fitting-time" name="fitting_time">
+            <option value="">Select a time</option>
+            <option value="morning">Morning (9am–12pm)</option>
+            <option value="afternoon">Afternoon (12pm–4pm)</option>
+            <option value="evening">Evening (4pm–6pm)</option>
+          </select>
+        </div>
+
+        <div class="booking-step__actions">
+          <button type="button" class="btn btn--secondary" data-step-prev>Back</button>
+          <button type="button" class="btn btn--primary" data-step-next>Next</button>
+        </div>
+      </fieldset>
+
+      <!-- STEP 5: CONTACT DETAILS -->
+      <fieldset class="booking-step" data-booking-step="5">
+        <legend>Your Details</legend>
+
+        <div class="booking-form__field">
+          <label for="full-name">Full name</label>
+          <input type="text" id="full-name" name="full_name" required>
+        </div>
+
+        <div class="booking-form__field">
+          <label for="phone">Phone number</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+
+        <div class="booking-form__field">
+          <label for="email">Email (optional)</label>
+          <input type="email" id="email" name="email">
+        </div>
+
+        <div class="booking-form__field">
+          <label for="delivery">Delivery or pickup?</label>
+          <select id="delivery" name="delivery">
+            <option value="">Select an option</option>
+            <option value="pickup">Pickup at workshop</option>
+            <option value="delivery">Delivery</option>
+          </select>
+        </div>
+
+        <div class="booking-step__actions">
+          <button type="button" class="btn btn--secondary" data-step-prev>Back</button>
+          <button type="submit" class="btn btn--primary">Submit Booking</button>
+        </div>
+      </fieldset>
+
+    </form>
+
+    <div class="booking-success" data-booking-success hidden>
+      <h2>Booking received.</h2>
+      <p>We'll reach out to confirm your fitting date and next steps. You can also reach us directly on WhatsApp.</p>
+      <a href="https://wa.me/2340000000000" class="btn btn--primary" target="_blank" rel="noopener">Message on WhatsApp</a>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__monogram-texture" aria-hidden="true"></div>
+    <div class="site-footer__inner">
+      <a href="index.html" class="logo logo--footer">
+        <span class="logo__mark">GH</span>
+        <span class="logo__text">GABYHART STITCHES</span>
+      </a>
+      <p class="site-footer__tagline">Pay attention to details.</p>
+
+      <nav class="site-footer__nav">
+        <a href="about.html">About</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="shop.html">Shop</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="booking.html">Booking</a>
+        <a href="size-guide.html">Size Guide</a>
+        <a href="fabric.html">Fabric</a>
+        <a href="corporate.html">Corporate</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="site-footer__contact">
+        <a href="tel:+2340000000000">+234 000 000 0000</a>
+        <a href="mailto:hello@gabyhartstitches.com">hello@gabyhartstitches.com</a>
+        <p>Ekpoma, Nigeria</p>
+      </div>
+
+      <p class="site-footer__legal">&copy; <span data-current-year></span> GABYHART STITCHES. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/2340000000000" class="whatsapp-btn" id="whatsapp-btn" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+    <span class="whatsapp-btn__icon" aria-hidden="true"></span>
+  </a>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
