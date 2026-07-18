@@ -1,7 +1,7 @@
 /* ==========================================================================
-   GABYHART STITCHES — Main Stylesheet
+   GABYHART STITCHES — Main Stylesheet (v2)
    Foundation: reset, layout, header/nav, footer, buttons, shared components.
-   Page-specific styles are added per-page as those pages are built.
+   Updated for brand-blue dominant palette + full wordmark logo lockup.
    ========================================================================== */
 
 /* ---- RESET ---- */
@@ -12,7 +12,7 @@ html { scroll-behavior: smooth; }
 body {
   font-family: var(--font-structural);
   font-size: var(--fs-body);
-  background: var(--color-navy-950);
+  background: var(--color-cobalt-800);
   color: var(--color-text-on-dark);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -44,7 +44,12 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
 }
 
 .section--dark {
-  background: var(--color-navy-950);
+  background: var(--color-cobalt-800);
+  color: var(--color-text-on-dark);
+}
+
+.section--brand {
+  background: var(--gradient-brand);
   color: var(--color-text-on-dark);
 }
 
@@ -54,7 +59,8 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
 }
 
 /* faint mist texture inside dark sections */
-.section--dark.has-texture {
+.section--dark.has-texture,
+.section--brand.has-texture {
   background-image: radial-gradient(var(--color-mist-texture) 1px, transparent 1px);
   background-size: 28px 28px;
 }
@@ -65,7 +71,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
   text-transform: uppercase;
   letter-spacing: var(--tracking-wider);
   font-size: var(--fs-label);
-  color: var(--color-sky-400);
+  color: var(--color-sky-300);
   display: block;
   margin-bottom: var(--space-xs);
 }
@@ -81,7 +87,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
   letter-spacing: var(--tracking-wide);
   font-size: var(--fs-small);
   padding: var(--space-sm) var(--space-lg);
-  border: var(--border-hairline-sky);
+  border: var(--border-hairline-dark);
   border-radius: var(--radius-none);
   transition: background var(--duration-fast) var(--ease-standard),
               color var(--duration-fast) var(--ease-standard),
@@ -89,25 +95,25 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
 }
 
 .btn--primary {
-  background: var(--color-text-on-dark);
-  color: var(--color-navy-950);
-  border-color: var(--color-text-on-dark);
+  background: var(--color-sky-400);
+  color: var(--color-cobalt-900);
+  border-color: var(--color-sky-400);
 }
-.btn--primary:hover { background: var(--color-sky-400); border-color: var(--color-sky-400); color: var(--color-navy-950); }
+.btn--primary:hover { background: var(--color-sky-300); border-color: var(--color-sky-300); }
 
 .btn--outline {
   background: transparent;
   color: var(--color-text-on-dark);
   border-color: var(--color-sky-line);
 }
-.btn--outline:hover { border-color: var(--color-sky-400); color: var(--color-sky-300); }
+.btn--outline:hover { border-color: var(--color-sky-300); color: var(--color-sky-300); }
 
 .btn--outline-dark {
   background: transparent;
   color: var(--color-text-on-light);
   border-color: var(--color-mist-300);
 }
-.btn--outline-dark:hover { border-color: var(--color-sky-400); color: var(--color-sky-400); }
+.btn--outline-dark:hover { border-color: var(--color-blue-600); color: var(--color-blue-600); }
 
 /* ---- HEADER ---- */
 .site-header {
@@ -116,7 +122,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
   height: var(--header-height);
   display: flex;
   align-items: center;
-  background: rgba(15, 20, 29, 0.92);
+  background: rgba(16, 34, 92, 0.92);
   backdrop-filter: blur(6px);
   border-bottom: var(--border-hairline-dark);
   z-index: var(--z-header);
@@ -129,50 +135,56 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
   width: 100%;
 }
 
-/* logo mark — text-based placeholder, swappable for <img> later */
+/* logo lockup — full wordmark, text-based placeholder,
+   swappable for real <img> logo file later without restructuring header */
 .logo-mark {
   display: flex;
-  align-items: center;
-  gap: var(--space-2xs);
+  align-items: baseline;
+  gap: var(--space-3xs);
 }
 
-.logo-mark__monogram {
+.logo-mark__wordmark {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.5rem;
-  color: var(--color-text-on-dark);
-  border: 1px solid var(--color-sky-line);
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.logo-mark__text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
-}
-
-.logo-mark__name {
-  font-family: var(--font-structural);
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: var(--tracking-wide);
-  font-size: var(--fs-small);
-  color: var(--color-text-on-dark);
+  font-size: 1.15rem;
+  line-height: 1;
+  background: linear-gradient(100deg, var(--color-sky-300) 0%, var(--color-sky-400) 40%, var(--color-text-on-dark) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--color-text-on-dark); /* fallback if gradient text unsupported */
+  white-space: nowrap;
 }
 
 .logo-mark__credential {
   font-family: var(--font-structural);
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: var(--tracking-wide);
-  font-size: 0.6rem;
-  color: var(--color-sky-400);
-  margin-top: 2px;
+  font-size: 0.55rem;
+  color: var(--color-sky-300);
+}
+
+/* standalone credential badge — used on About page + footer, larger context */
+.credential-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-family: var(--font-structural);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  font-size: var(--fs-label);
+  color: var(--color-sky-300);
+}
+
+.credential-badge::before,
+.credential-badge::after {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: var(--color-sky-line);
 }
 
 /* nav toggle button (hamburger) */
@@ -204,7 +216,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
 .site-nav {
   position: fixed;
   inset: 0;
-  background: var(--color-navy-950);
+  background: var(--color-cobalt-900);
   z-index: var(--z-mobile-nav);
   display: flex;
   flex-direction: column;
@@ -242,7 +254,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
 
 .site-nav__link:hover,
 .site-nav__link.is-active {
-  color: var(--color-sky-400);
+  color: var(--color-sky-300);
   border-bottom-color: var(--color-sky-line);
 }
 
@@ -250,7 +262,7 @@ body.nav-open { overflow: hidden; }
 
 /* ---- FOOTER ---- */
 .site-footer {
-  background: var(--color-navy-900);
+  background: var(--color-cobalt-900);
   color: var(--color-text-on-dark-muted);
   padding: var(--space-2xl) 0 var(--space-lg);
   border-top: var(--border-hairline-dark);
@@ -278,14 +290,7 @@ body.nav-open { overflow: hidden; }
   transition: color var(--duration-fast) var(--ease-standard);
 }
 
-.site-footer__nav a:hover { color: var(--color-sky-400); }
-
-.site-footer__credential {
-  font-size: var(--fs-label);
-  text-transform: uppercase;
-  letter-spacing: var(--tracking-wide);
-  color: var(--color-sky-400);
-}
+.site-footer__nav a:hover { color: var(--color-sky-300); }
 
 .site-footer__bottom {
   border-top: var(--border-hairline-dark);
@@ -309,8 +314,8 @@ body.nav-open { overflow: hidden; }
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-navy-900);
-  border: 1px solid var(--color-sky-line);
+  background: var(--color-cobalt-900);
+  border: var(--border-hairline-dark);
   opacity: 0;
   visibility: hidden;
   transform: translateY(12px);
@@ -328,7 +333,7 @@ body.nav-open { overflow: hidden; }
               visibility 0s linear 0s;
 }
 
-.whatsapp-float svg { width: 26px; height: 26px; fill: var(--color-text-on-dark); }
+.whatsapp-float svg { width: 26px; height: 26px; fill: var(--color-sky-300); }
 
 /* ---- SCROLL REVEAL ---- */
 .reveal {
