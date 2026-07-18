@@ -1,7 +1,7 @@
 /* ==========================================================================
-   GABYHART STITCHES — Design Tokens (v2)
-   Dominant color = the logo's own cobalt-to-sky-blue gradient.
-   Pale blue-grey remains as the contrast/light section color.
+   GABYHART STITCHES — Design Tokens (v3)
+   Colors sampled directly from the client's logo file — exact match.
+   Dominant = vivid royal-blue-to-azure gradient (not muted/pastel).
    Locked. Do not introduce colors outside this file.
    ========================================================================== */
 
@@ -9,32 +9,31 @@
 
 :root {
 
-  /* ---- COLOR: BRAND BLUE (dominant — from logo gradient) ---- */
-  --color-cobalt-900: #10225c;   /* deepest cobalt — logo's darkest corner */
-  --color-cobalt-800: #16308a;   /* dark section bg, header/footer */
-  --color-cobalt-700: #1c3fae;   /* raised surface / cards on dark */
-  --color-blue-600:   #2a5cd6;   /* mid-gradient blue */
-  --color-blue-500:   #3d7fe0;   /* transitional blue */
-  --color-sky-400:    #57a3ec;   /* logo's bright end — accent, links, hovers */
-  --color-sky-300:    #82c0f2;   /* lighter whisper variant, glows */
-  --color-sky-line:   rgba(87, 163, 236, 0.35); /* divider lines on dark */
+  /* ---- COLOR: BRAND BLUE (dominant — sampled directly from logo) ---- */
+  --color-cobalt-900: #060f3d;   /* deepest corner of the monogram "G" */
+  --color-cobalt-800: #0a2b7a;   /* dark section bg, header/footer */
+  --color-cobalt-700: #0d4bab;   /* raised surface / cards on dark */
+  --color-blue-600:   #0d6fe0;   /* mid-gradient blue, from "Hart" lettering */
+  --color-sky-400:    #1396f0;   /* logo's bright end — vivid azure */
+  --color-sky-300:    #4dbcf5;   /* lighter tint — glows, hover states */
+  --color-sky-line:   rgba(19, 150, 240, 0.35); /* divider lines on dark */
 
-  /* brand gradient — as seen in the actual logo, cobalt to sky */
-  --gradient-brand: linear-gradient(135deg, var(--color-cobalt-900) 0%, var(--color-blue-600) 50%, var(--color-sky-400) 100%);
+  /* brand gradient — matches the actual logo diagonal exactly */
+  --gradient-brand: linear-gradient(135deg, var(--color-cobalt-900) 0%, var(--color-blue-600) 55%, var(--color-sky-400) 100%);
 
-  /* ---- COLOR: PALE BLUE-GREY (contrast/light sections) ---- */
-  --color-mist-100: #eef1f7;   /* lightest section bg */
-  --color-mist-200: #e0e7f2;   /* alt light section bg */
-  --color-mist-300: #c3cfe3;   /* borders/dividers on light */
-  --color-mist-muted: #7c88a3; /* muted text on light bg */
+  /* ---- COLOR: PALE BLUE-GREY (contrast/light sections, matches logo bg wash) ---- */
+  --color-mist-100: #eef1f7;
+  --color-mist-200: #e0e7f2;
+  --color-mist-300: #c3cfe3;
+  --color-mist-muted: #7c88a3;
 
   /* ---- COLOR: DEEP NAVY (small credential text / fine detail only) ---- */
-  --color-navy-ink: #0d1a3d;   /* "Certified Obioma" text, hairline dividers */
+  --color-navy-ink: #060f3d;
 
   /* ---- TEXT ---- */
-  --color-text-on-dark: #f4f7fc;        /* warm-cool off-white on brand blue */
-  --color-text-on-dark-muted: #c2d2ee;  /* secondary text on dark blue */
-  --color-text-on-light: #10225c;       /* cobalt text on pale bg */
+  --color-text-on-dark: #f4f7fc;
+  --color-text-on-dark-muted: #b9d3f5;
+  --color-text-on-light: #060f3d;
   --color-text-on-light-muted: #5a6785;
 
   /* ---- TEXTURE (faint mist overlay inside dark sections) ---- */
