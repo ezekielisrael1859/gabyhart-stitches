@@ -1,0 +1,90 @@
+/* ==========================================================================
+   GABYHART STITCHES — Design Tokens
+   Locked design system. Do not introduce colors/fonts outside this file.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;0,6..96,800;1,6..96,400&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+
+  /* ---- COLOR: NAVY (primary, dominant background) ---- */
+  --color-navy-950: #0a0e14;   /* near-black navy — main dark bg */
+  --color-navy-900: #0f141d;   /* header/footer bg */
+  --color-navy-800: #161d29;   /* raised dark surface / cards on dark */
+  --color-navy-700: #212a3a;   /* borders/dividers on dark */
+
+  /* ---- COLOR: PALE BLUE-GREY (secondary, contrast sections) ---- */
+  --color-mist-100: #eef1f5;   /* lightest section bg */
+  --color-mist-200: #e2e7ee;   /* alt light section bg */
+  --color-mist-300: #cbd3df;   /* borders/dividers on light */
+  --color-mist-muted: #8d97a8; /* muted text on light bg */
+
+  /* ---- COLOR: SKY-BLUE (rare accent only — never a fill/block) ---- */
+  --color-sky-400: #6fa8d8;    /* hover glow, link accent */
+  --color-sky-300: #8fbde3;    /* lighter whisper variant */
+  --color-sky-line: rgba(111, 168, 216, 0.25); /* thin divider lines */
+
+  /* ---- TEXT ---- */
+  --color-text-on-dark: #f3efe6;       /* warm off-white, not stark white */
+  --color-text-on-dark-muted: #b7bdc9; /* secondary text on navy */
+  --color-text-on-light: #12161f;      /* near-navy-black text on light bg */
+  --color-text-on-light-muted: #5a6472;
+
+  /* ---- TEXTURE (faint mist overlay inside dark sections) ---- */
+  --color-mist-texture: rgba(226, 231, 238, 0.04);
+
+  /* ---- FONTS ---- */
+  --font-display: 'Bodoni Moda', 'Times New Roman', serif;
+  --font-structural: 'Manrope', -apple-system, sans-serif;
+
+  /* ---- TYPE SCALE ---- */
+  --fs-hero: clamp(2.75rem, 9vw, 6rem);
+  --fs-h1: clamp(2.25rem, 6vw, 4rem);
+  --fs-h2: clamp(1.75rem, 4.5vw, 2.75rem);
+  --fs-h3: clamp(1.25rem, 3vw, 1.75rem);
+  --fs-body-lg: 1.125rem;
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --fs-label: 0.75rem;
+
+  /* ---- STRUCTURAL TEXT (nav/labels/buttons) ---- */
+  --tracking-wide: 0.08em;
+  --tracking-wider: 0.14em;
+
+  /* ---- SPACING ---- */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+  --space-3xl: 9rem;
+
+  /* ---- RADIUS (near-zero, per design direction) ---- */
+  --radius-none: 0;
+  --radius-hairline: 1px;
+
+  /* ---- BORDERS ---- */
+  --border-hairline-dark: 1px solid var(--color-navy-700);
+  --border-hairline-light: 1px solid var(--color-mist-300);
+  --border-hairline-sky: 1px solid var(--color-sky-line);
+
+  /* ---- MOTION (restrained — scroll-reveal + one subtle parallax only) ---- */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 200ms;
+  --duration-base: 400ms;
+  --duration-slow: 700ms;
+
+  /* ---- LAYOUT ---- */
+  --container-max: 1200px;
+  --container-pad: 1.25rem;
+  --header-height: 72px;
+
+  /* ---- Z-INDEX ---- */
+  --z-header: 100;
+  --z-mobile-nav: 200;
+  --z-whatsapp: 150;
+  --z-lightbox: 300;
+}
