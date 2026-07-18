@@ -1,43 +1,43 @@
 /* ==========================================================================
-   GABYHART STITCHES — Design Tokens (v3)
-   Colors sampled directly from the client's logo file — exact match.
-   Dominant = vivid royal-blue-to-azure gradient (not muted/pastel).
-   Locked. Do not introduce colors outside this file.
+   GABYHART STITCHES — Design Tokens (v4)
+   Dominant palette = client-specified soft periwinkle/powder blue wash.
+   Exact hex values locked by client, do not alter:
+     #B5CBE6 (periwinkle ice blue) / #C9DBF0 (pale powder blue)
+   The vivid cobalt-to-azure gradient is now a SMALL accent only
+   (logo wordmark, links, buttons) — never a full section background.
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;0,6..96,800;1,6..96,400&family=Manrope:wght@400;500;600;700;800&display=swap');
 
 :root {
 
-  /* ---- COLOR: BRAND BLUE (dominant — sampled directly from logo) ---- */
-  --color-cobalt-900: #060f3d;   /* deepest corner of the monogram "G" */
-  --color-cobalt-800: #0a2b7a;   /* dark section bg, header/footer */
-  --color-cobalt-700: #0d4bab;   /* raised surface / cards on dark */
-  --color-blue-600:   #0d6fe0;   /* mid-gradient blue, from "Hart" lettering */
-  --color-sky-400:    #1396f0;   /* logo's bright end — vivid azure */
-  --color-sky-300:    #4dbcf5;   /* lighter tint — glows, hover states */
-  --color-sky-line:   rgba(19, 150, 240, 0.35); /* divider lines on dark */
+  /* ---- COLOR: DOMINANT — soft periwinkle/powder blue wash (client-locked) ---- */
+  --color-wash-mid: #B5CBE6;    /* mid-tone periwinkle ice blue */
+  --color-wash-pale: #C9DBF0;   /* soft pale powder blue */
+  --color-wash-light: #E4EDF8;  /* lightest tint — near-top of gradient, for text contrast areas */
+  --color-wash-deep: #9FB9DC;   /* slightly deeper variant for subtle section alternation only */
 
-  /* brand gradient — matches the actual logo diagonal exactly */
-  --gradient-brand: linear-gradient(135deg, var(--color-cobalt-900) 0%, var(--color-blue-600) 55%, var(--color-sky-400) 100%);
+  /* dominant background gradient — smooth, no banding, matches client reference */
+  --gradient-wash: radial-gradient(circle at 20% 85%, var(--color-wash-light) 0%, var(--color-wash-mid) 45%, var(--color-wash-pale) 100%);
 
-  /* ---- COLOR: PALE BLUE-GREY (contrast/light sections, matches logo bg wash) ---- */
-  --color-mist-100: #eef1f7;
-  --color-mist-200: #e0e7f2;
-  --color-mist-300: #c3cfe3;
-  --color-mist-muted: #7c88a3;
+  /* ---- COLOR: BRAND ACCENT — vivid gradient sampled from logo letters (small use only) ---- */
+  --color-cobalt-900: #060f3d;   /* logo's darkest corner — headings, nav text on light bg */
+  --color-cobalt-800: #0a2b7a;
+  --color-blue-600:   #0d6fe0;
+  --color-sky-400:    #1396f0;   /* vivid azure — links, button fills, hover states */
+  --color-sky-300:    #4dbcf5;
+  --color-sky-line:   rgba(19, 150, 240, 0.3);
 
-  /* ---- COLOR: DEEP NAVY (small credential text / fine detail only) ---- */
+  --gradient-brand: linear-gradient(100deg, var(--color-cobalt-900) 0%, var(--color-blue-600) 55%, var(--color-sky-400) 100%);
+
+  /* ---- COLOR: DEEP NAVY (fine detail — dividers, small credential text) ---- */
   --color-navy-ink: #060f3d;
 
   /* ---- TEXT ---- */
-  --color-text-on-dark: #f4f7fc;
-  --color-text-on-dark-muted: #b9d3f5;
-  --color-text-on-light: #060f3d;
-  --color-text-on-light-muted: #5a6785;
-
-  /* ---- TEXTURE (faint mist overlay inside dark sections) ---- */
-  --color-mist-texture: rgba(224, 231, 242, 0.05);
+  --color-text-on-wash: #17224f;        /* dark navy text on the light wash background */
+  --color-text-on-wash-muted: #4a5578;
+  --color-text-on-dark: #f4f7fc;        /* for the rare dark/brand-gradient section */
+  --color-text-on-dark-muted: #c2d2ee;
 
   /* ---- FONTS ---- */
   --font-display: 'Bodoni Moda', 'Times New Roman', serif;
@@ -73,8 +73,8 @@
   --radius-hairline: 1px;
 
   /* ---- BORDERS ---- */
-  --border-hairline-dark: 1px solid var(--color-sky-line);
-  --border-hairline-light: 1px solid var(--color-mist-300);
+  --border-hairline-wash: 1px solid rgba(23, 34, 79, 0.15);
+  --border-hairline-sky: 1px solid var(--color-sky-line);
   --border-hairline-navy: 1px solid var(--color-navy-ink);
 
   /* ---- MOTION (restrained — scroll-reveal + one subtle parallax only) ---- */

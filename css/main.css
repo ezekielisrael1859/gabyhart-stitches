@@ -1,7 +1,7 @@
 /* ==========================================================================
-   GABYHART STITCHES — Main Stylesheet (v2)
-   Foundation: reset, layout, header/nav, footer, buttons, shared components.
-   Updated for brand-blue dominant palette + full wordmark logo lockup.
+   GABYHART STITCHES — Main Stylesheet (v3)
+   Dominant = soft periwinkle/powder-blue wash (client-locked colors).
+   Vivid brand gradient = accent only (logo, buttons, links, rare CTA).
    ========================================================================== */
 
 /* ---- RESET ---- */
@@ -12,8 +12,8 @@ html { scroll-behavior: smooth; }
 body {
   font-family: var(--font-structural);
   font-size: var(--fs-body);
-  background: var(--color-cobalt-800);
-  color: var(--color-text-on-dark);
+  background: var(--color-wash-pale);
+  color: var(--color-text-on-wash);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
@@ -43,26 +43,21 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
   padding: var(--space-2xl) 0;
 }
 
-.section--dark {
-  background: var(--color-cobalt-800);
-  color: var(--color-text-on-dark);
+/* two light variants for subtle alternating rhythm — both stay within the wash */
+.section--light {
+  background: var(--color-wash-light);
+  color: var(--color-text-on-wash);
 }
 
+.section--dark {
+  background: var(--gradient-wash);
+  color: var(--color-text-on-wash);
+}
+
+/* rare vivid moment — hero and final CTA only, per client's "small accent" direction */
 .section--brand {
   background: var(--gradient-brand);
   color: var(--color-text-on-dark);
-}
-
-.section--light {
-  background: var(--color-mist-100);
-  color: var(--color-text-on-light);
-}
-
-/* faint mist texture inside dark sections */
-.section--dark.has-texture,
-.section--brand.has-texture {
-  background-image: radial-gradient(var(--color-mist-texture) 1px, transparent 1px);
-  background-size: 28px 28px;
 }
 
 .eyebrow {
@@ -71,9 +66,13 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
   text-transform: uppercase;
   letter-spacing: var(--tracking-wider);
   font-size: var(--fs-label);
-  color: var(--color-sky-300);
+  color: var(--color-blue-600);
   display: block;
   margin-bottom: var(--space-xs);
+}
+
+.section--brand .eyebrow {
+  color: var(--color-sky-300);
 }
 
 /* ---- BUTTONS ---- */
@@ -87,7 +86,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
   letter-spacing: var(--tracking-wide);
   font-size: var(--fs-small);
   padding: var(--space-sm) var(--space-lg);
-  border: var(--border-hairline-dark);
+  border: var(--border-hairline-sky);
   border-radius: var(--radius-none);
   transition: background var(--duration-fast) var(--ease-standard),
               color var(--duration-fast) var(--ease-standard),
@@ -96,22 +95,28 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
 
 .btn--primary {
   background: var(--color-sky-400);
-  color: var(--color-cobalt-900);
+  color: #ffffff;
   border-color: var(--color-sky-400);
 }
-.btn--primary:hover { background: var(--color-sky-300); border-color: var(--color-sky-300); }
+.btn--primary:hover { background: var(--color-blue-600); border-color: var(--color-blue-600); }
 
 .btn--outline {
   background: transparent;
-  color: var(--color-text-on-dark);
-  border-color: var(--color-sky-line);
+  color: var(--color-text-on-wash);
+  border-color: rgba(23, 34, 79, 0.25);
 }
-.btn--outline:hover { border-color: var(--color-sky-300); color: var(--color-sky-300); }
+.btn--outline:hover { border-color: var(--color-sky-400); color: var(--color-blue-600); }
+
+.section--brand .btn--outline {
+  color: var(--color-text-on-dark);
+  border-color: rgba(244, 247, 252, 0.4);
+}
+.section--brand .btn--outline:hover { border-color: var(--color-sky-300); color: var(--color-sky-300); }
 
 .btn--outline-dark {
   background: transparent;
-  color: var(--color-text-on-light);
-  border-color: var(--color-mist-300);
+  color: var(--color-text-on-wash);
+  border-color: rgba(23, 34, 79, 0.25);
 }
 .btn--outline-dark:hover { border-color: var(--color-blue-600); color: var(--color-blue-600); }
 
@@ -122,9 +127,9 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
   height: var(--header-height);
   display: flex;
   align-items: center;
-  background: rgba(16, 34, 92, 0.92);
+  background: rgba(228, 237, 248, 0.88);
   backdrop-filter: blur(6px);
-  border-bottom: var(--border-hairline-dark);
+  border-bottom: var(--border-hairline-wash);
   z-index: var(--z-header);
 }
 
@@ -135,7 +140,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
   width: 100%;
 }
 
-/* logo lockup — full wordmark, text-based placeholder,
+/* logo lockup — full wordmark, vivid gradient text (its one accent use),
    swappable for real <img> logo file later without restructuring header */
 .logo-mark {
   display: flex;
@@ -148,11 +153,11 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
   font-weight: 700;
   font-size: 1.15rem;
   line-height: 1;
-  background: linear-gradient(100deg, var(--color-sky-300) 0%, var(--color-sky-400) 40%, var(--color-text-on-dark) 100%);
+  background: var(--gradient-brand);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  color: var(--color-text-on-dark); /* fallback if gradient text unsupported */
+  color: var(--color-cobalt-900); /* fallback if gradient text unsupported */
   white-space: nowrap;
 }
 
@@ -162,10 +167,10 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
   text-transform: uppercase;
   letter-spacing: var(--tracking-wide);
   font-size: 0.55rem;
-  color: var(--color-sky-300);
+  color: var(--color-blue-600);
 }
 
-/* standalone credential badge — used on About page + footer, larger context */
+/* standalone credential badge — used on About page + footer */
 .credential-badge {
   display: inline-flex;
   align-items: center;
@@ -175,7 +180,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
   text-transform: uppercase;
   letter-spacing: var(--tracking-wider);
   font-size: var(--fs-label);
-  color: var(--color-sky-300);
+  color: var(--color-blue-600);
 }
 
 .credential-badge::before,
@@ -184,7 +189,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
   display: inline-block;
   width: 24px;
   height: 1px;
-  background: var(--color-sky-line);
+  background: rgba(23, 34, 79, 0.25);
 }
 
 /* nav toggle button (hamburger) */
@@ -203,7 +208,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
   display: block;
   height: 2px;
   width: 100%;
-  background: var(--color-text-on-dark);
+  background: var(--color-navy-ink);
   transition: transform var(--duration-base) var(--ease-standard),
               opacity var(--duration-fast) var(--ease-standard);
 }
@@ -216,7 +221,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
 .site-nav {
   position: fixed;
   inset: 0;
-  background: var(--color-cobalt-900);
+  background: var(--gradient-wash);
   z-index: var(--z-mobile-nav);
   display: flex;
   flex-direction: column;
@@ -246,7 +251,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
   text-transform: uppercase;
   letter-spacing: var(--tracking-wide);
   font-size: 1.1rem;
-  color: var(--color-text-on-dark);
+  color: var(--color-navy-ink);
   padding: var(--space-2xs) 0;
   border-bottom: 1px solid transparent;
   transition: color var(--duration-fast) var(--ease-standard);
@@ -254,7 +259,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
 
 .site-nav__link:hover,
 .site-nav__link.is-active {
-  color: var(--color-sky-300);
+  color: var(--color-blue-600);
   border-bottom-color: var(--color-sky-line);
 }
 
@@ -262,10 +267,10 @@ body.nav-open { overflow: hidden; }
 
 /* ---- FOOTER ---- */
 .site-footer {
-  background: var(--color-cobalt-900);
-  color: var(--color-text-on-dark-muted);
+  background: var(--color-wash-deep);
+  color: var(--color-text-on-wash);
   padding: var(--space-2xl) 0 var(--space-lg);
-  border-top: var(--border-hairline-dark);
+  border-top: var(--border-hairline-wash);
 }
 
 .site-footer__top {
@@ -286,17 +291,17 @@ body.nav-open { overflow: hidden; }
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: var(--tracking-wide);
-  color: var(--color-text-on-dark-muted);
+  color: var(--color-text-on-wash);
   transition: color var(--duration-fast) var(--ease-standard);
 }
 
-.site-footer__nav a:hover { color: var(--color-sky-300); }
+.site-footer__nav a:hover { color: var(--color-cobalt-900); }
 
 .site-footer__bottom {
-  border-top: var(--border-hairline-dark);
+  border-top: var(--border-hairline-wash);
   padding-top: var(--space-md);
   font-size: var(--fs-label);
-  color: var(--color-mist-muted);
+  color: var(--color-text-on-wash-muted);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -315,7 +320,7 @@ body.nav-open { overflow: hidden; }
   align-items: center;
   justify-content: center;
   background: var(--color-cobalt-900);
-  border: var(--border-hairline-dark);
+  border: var(--border-hairline-sky);
   opacity: 0;
   visibility: hidden;
   transform: translateY(12px);
