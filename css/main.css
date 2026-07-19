@@ -1,8 +1,9 @@
 /* ==========================================================================
-   GABYHART STITCHES — Main Stylesheet (v4)
-   Client feedback: text needs to be bolder/more legible; blue tones (now
-   fixed in tokens.css) were overshadowing the copy. Font weights increased
-   across headings, body text, and buttons.
+   GABYHART STITCHES — Main Stylesheet (v5)
+   Client feedback: font felt too complicated/hard to read; text should be
+   centered, not one-sided. Fix: default headings switched to Manrope
+   (Bodoni Moda reserved for hero only), headings centered, body text stays
+   left-aligned for readability.
    ========================================================================== */
 
 /* ---- RESET ---- */
@@ -31,7 +32,13 @@ button { font-family: inherit; background: none; border: none; cursor: pointer; 
 
 input, textarea, select { font-family: inherit; font-size: inherit; color: inherit; background: none; border: none; }
 
-h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; line-height: 1.15; }
+/* headings now default to Manrope (simple, easy to read) and are centered */
+h1, h2, h3, h4 {
+  font-family: var(--font-structural);
+  font-weight: 800;
+  line-height: 1.2;
+  text-align: center;
+}
 
 /* ---- LAYOUT UTILITIES ---- */
 .container {
@@ -75,6 +82,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; line-height
   color: var(--color-blue-600);
   display: block;
   margin-bottom: var(--space-xs);
+  text-align: center;
 }
 
 .section--brand .eyebrow {
@@ -153,9 +161,9 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; line-height
 }
 
 .logo-mark__wordmark {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.2rem;
+  font-family: var(--font-structural);
+  font-weight: 800;
+  font-size: 1.15rem;
   line-height: 1;
   background: var(--gradient-brand);
   -webkit-background-clip: text;
@@ -278,13 +286,16 @@ body.nav-open { overflow: hidden; }
 .site-footer__top {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: var(--space-lg);
   margin-bottom: var(--space-xl);
+  text-align: center;
 }
 
 .site-footer__nav {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: var(--space-sm) var(--space-md);
 }
 
@@ -307,8 +318,9 @@ body.nav-open { overflow: hidden; }
   color: var(--color-text-on-wash-muted);
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  gap: var(--space-2xs);
+  justify-content: center;
+  gap: var(--space-sm);
+  text-align: center;
 }
 
 /* ---- WHATSAPP FLOAT ---- */
@@ -358,14 +370,15 @@ body.nav-open { overflow: hidden; }
 
 /* ---- SHARED TYPOGRAPHY HELPERS ---- */
 .display-heading {
-  font-family: var(--font-display);
-  font-style: normal;
-  font-weight: 700;
+  font-family: var(--font-structural);
+  font-weight: 800;
 }
 
+/* the one spot that keeps the editorial serif — big hero headline only */
 .hero-heading {
+  font-family: var(--font-display);
   font-size: var(--fs-hero);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 /* ---- MAIN CONTENT OFFSET (fixed header) ---- */
