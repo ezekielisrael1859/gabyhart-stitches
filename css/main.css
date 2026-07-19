@@ -1,9 +1,9 @@
 /* ==========================================================================
-   GABYHART STITCHES — Main Stylesheet (v5)
-   Client feedback: font felt too complicated/hard to read; text should be
-   centered, not one-sided. Fix: default headings switched to Manrope
-   (Bodoni Moda reserved for hero only), headings centered, body text stays
-   left-aligned for readability.
+   GABYHART STITCHES — Main Stylesheet (v6)
+   Refinement pass inspired by Escape House's arrangement: wider label
+   tracking, an italic accent style for subhead moments, cleaner button
+   spacing. Structure/layout of existing pages unchanged — only values
+   and new optional classes added.
    ========================================================================== */
 
 /* ---- RESET ---- */
@@ -32,7 +32,6 @@ button { font-family: inherit; background: none; border: none; cursor: pointer; 
 
 input, textarea, select { font-family: inherit; font-size: inherit; color: inherit; background: none; border: none; }
 
-/* headings now default to Manrope (simple, easy to read) and are centered */
 h1, h2, h3, h4 {
   font-family: var(--font-structural);
   font-weight: 800;
@@ -73,20 +72,43 @@ h1, h2, h3, h4 {
   background-size: 28px 28px;
 }
 
+/* eyebrow — wider, airier tracking (Escape House reference) */
 .eyebrow {
   font-family: var(--font-structural);
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: var(--tracking-wider);
+  letter-spacing: 0.22em;
   font-size: var(--fs-label);
   color: var(--color-blue-600);
   display: block;
-  margin-bottom: var(--space-xs);
+  margin-bottom: var(--space-sm);
   text-align: center;
 }
 
 .section--brand .eyebrow {
   color: var(--color-sky-300);
+}
+
+/* NEW: italic serif accent line — for subhead/tagline moments,
+   e.g. "Crafted to capture your essence." */
+.accent-line {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  text-align: center;
+  color: var(--color-blue-600);
+}
+
+/* NEW: small hairline divider, centered — sits between headline and subhead */
+.hairline-divider {
+  width: 48px;
+  height: 1px;
+  background: rgba(12, 22, 56, 0.3);
+  margin: var(--space-md) auto;
+}
+
+.section--brand .hairline-divider {
+  background: rgba(244, 247, 252, 0.4);
 }
 
 /* ---- BUTTONS ---- */
@@ -133,6 +155,18 @@ h1, h2, h3, h4 {
   border-color: rgba(12, 22, 56, 0.3);
 }
 .btn--outline-dark:hover { border-color: var(--color-blue-600); color: var(--color-blue-600); }
+
+/* NEW: stacked full-width button group — for hero moments, mirrors
+   Escape House's solid-then-outline vertical stack on mobile */
+.btn-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  align-items: stretch;
+  max-width: 320px;
+  margin: var(--space-lg) auto 0;
+}
+.btn-stack .btn { width: 100%; }
 
 /* ---- HEADER ---- */
 .site-header {
@@ -189,7 +223,7 @@ h1, h2, h3, h4 {
   font-family: var(--font-structural);
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: var(--tracking-wider);
+  letter-spacing: 0.2em;
   font-size: var(--fs-label);
   color: var(--color-blue-600);
 }
@@ -374,7 +408,6 @@ body.nav-open { overflow: hidden; }
   font-weight: 800;
 }
 
-/* the one spot that keeps the editorial serif — big hero headline only */
 .hero-heading {
   font-family: var(--font-display);
   font-size: var(--fs-hero);
