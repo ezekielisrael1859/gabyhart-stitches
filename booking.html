@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book a Fitting — Gabyhart Stitches</title>
+<meta name="description" content="Book a custom fitting with Gabyhart Stitches. Ekpoma, Nigeria.">
+<link rel="icon" href="images/favicon.png">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+<style>
+  .form-shell {
+    max-width: 480px;
+    margin-top: var(--space-lg);
+  }
+  .form-progress {
+    display: flex;
+    gap: var(--space-2xs);
+    margin-bottom: var(--space-lg);
+  }
+  .form-progress__dot {
+    flex: 1;
+    height: 3px;
+    background: var(--color-mist-300);
+  }
+  .form-progress__dot.is-active { background: var(--color-sky-400); }
+
+  .form-step__label {
+    font-size: var(--fs-label);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+    color: var(--color-blue-600);
+    display: block;
+    margin-bottom: var(--space-2xs);
+  }
+  .form-step h2 {
+    font-size: var(--fs-h3);
+    margin-bottom: var(--space-md);
+  }
+
+  .field-group { margin-bottom: var(--space-md); }
+  .field-group label {
+    display: block;
+    font-size: var(--fs-small);
+    font-weight: 600;
+    margin-bottom: var(--space-2xs);
+  }
+  .field-group input[type="text"],
+  .field-group input[type="tel"],
+  .field-group input[type="date"],
+  .field-group textarea,
+  .field-group select {
+    width: 100%;
+    border: var(--border-hairline-wash);
+    padding: var(--space-sm);
+    font-size: var(--fs-body);
+    background: #ffffff;
+  }
+  .field-group textarea { min-height: 90px; resize: vertical; }
+
+  .radio-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xs);
+  }
+  .radio-option {
+    border: var(--border-hairline-wash);
+    padding: var(--space-sm);
+    text-align: center;
+    font-size: var(--fs-small);
+    cursor: pointer;
+    position: relative;
+  }
+  .radio-option input {
+    position: absolute;
+    opacity: 0;
+  }
+  .radio-option input:checked + span {
+    color: var(--color-blue-600);
+    font-weight: 700;
+  }
+  .radio-option:has(input:checked) {
+    border-color: var(--color-sky-400);
+  }
+
+  .form-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-sm);
+    margin-top: var(--space-lg);
+  }
+
+  .review-list {
+    list-style: none;
+    margin-bottom: var(--space-lg);
+  }
+  .review-list li {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-sm);
+    padding: var(--space-xs) 0;
+    border-bottom: var(--border-hairline-wash);
+    font-size: var(--fs-small);
+  }
+  .review-list li span:first-child {
+    color: var(--color-text-on-wash-muted);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    font-size: var(--fs-label);
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo-mark">
+      <span class="logo-mark__wordmark">GabyHart Stitches</span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="site-nav">
+  <a href="index.html" class="site-nav__link">Home</a>
+  <a href="about.html" class="site-nav__link">About</a>
+  <a href="gallery.html" class="site-nav__link">Gallery</a>
+  <a href="shop.html" class="site-nav__link">Shop</a>
+  <a href="size-guide.html" class="site-nav__link">Size Guide</a>
+  <a href="fabric.html" class="site-nav__link">Fabric &amp; Sourcing</a>
+  <a href="pricing.html" class="site-nav__link">Price List</a>
+  <a href="booking.html" class="site-nav__link is-active">Book a Fitting</a>
+  <a href="corporate.html" class="site-nav__link">Corporate &amp; Bulk</a>
+  <a href="contact.html" class="site-nav__link">Contact &amp; FAQ</a>
+</nav>
+
+<main>
+
+  <section class="section section--dark" style="padding-top: var(--space-3xl); padding-bottom: var(--space-md);">
+    <div class="container">
+      <span class="eyebrow">Custom Order</span>
+      <h1 class="display-heading hero-heading">Book a Fitting</h1>
+    </div>
+  </section>
+
+  <section class="section section--light reveal">
+    <div class="container">
+
+      <form class="form-shell" data-multistep-form id="booking-form" onsubmit="return false;">
+
+        <div class="form-progress">
+          <div class="form-progress__dot is-active"></div>
+          <div class="form-progress__dot"></div>
+          <div class="form-progress__dot"></div>
+          <div class="form-progress__dot"></div>
+          <div class="form-progress__dot"></div>
+        </div>
+
+        <!-- STEP 1: GARMENT TYPE -->
+        <div data-step class="form-step">
+          <span class="form-step__label">Step 1 of 5</span>
+          <h2 class="display-heading">What are you booking?</h2>
+          <div class="radio-grid">
+            <label class="radio-option"><input type="radio" name="garment" value="Senator" checked><span>Senator</span></label>
+            <label class="radio-option"><input type="radio" name="garment" value="Kaftan"><span>Kaftan</span></label>
+            <label class="radio-option"><input type="radio" name="garment" value="Agbada"><span>Agbada</span></label>
+            <label class="radio-option"><input type="radio" name="garment" value="Custom Shirt"><span>Custom Shirt</span></label>
+            <label class="radio-option"><input type="radio" name="garment" value="Denim"><span>Denim</span></label>
+            <label class="radio-option"><input type="radio" name="garment" value="Other"><span>Other</span></label>
+          </div>
+          <div class="form-nav">
+            <span></span>
+            <button type="button" data-step-next class="btn btn--primary">Next</button>
+          </div>
+        </div>
+
+        <!-- STEP 2: STYLE DETAILS -->
+        <div data-step class="form-step">
+          <span class="form-step__label">Step 2 of 5</span>
+          <h2 class="display-heading">Style details</h2>
+          <div class="field-group">
+            <label for="color-pref">Preferred color / fabric</label>
+            <input type="text" id="color-pref" name="colorPref" placeholder="e.g. Navy, cream, custom fabric">
+          </div>
+          <div class="field-group">
+            <label for="monogram">Monogramming?</label>
+            <select id="monogram" name="monogram">
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+              <option value="Not sure">Not sure yet</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label for="occasion">Occasion</label>
+            <input type="text" id="occasion" name="occasion" placeholder="e.g. Wedding, everyday wear, corporate">
+          </div>
+          <div class="form-nav">
+            <button type="button" data-step-prev class="btn btn--outline-dark">Back</button>
+            <button type="button" data-step-next class="btn btn--primary">Next</button>
+          </div>
+        </div>
+
+        <!-- STEP 3: MEASUREMENTS -->
+        <div data-step class="form-step">
+          <span class="form-step__label">Step 3 of 5</span>
+          <h2 class="display-heading">Measurements</h2>
+          <p style="font-size: var(--fs-small); color: var(--color-text-on-wash-muted); margin-bottom: var(--space-md);">
+            Not sure how to measure yourself? Check the <a href="size-guide.html" style="color: var(--color-blue-600); text-decoration: underline;">Size Guide</a> first.
+          </p>
+          <div class="field-group">
+            <label for="measurements">Your measurements (optional)</label>
+            <textarea id="measurements" name="measurements" placeholder="Chest, waist, shoulder, sleeve, etc. Or leave blank to measure at fitting."></textarea>
+          </div>
+          <div class="form-nav">
+            <button type="button" data-step-prev class="btn btn--outline-dark">Back</button>
+            <button type="button" data-step-next class="btn btn--primary">Next</button>
+          </div>
+        </div>
+
+        <!-- STEP 4: CONTACT INFO -->
+        <div data-step class="form-step">
+          <span class="form-step__label">Step 4 of 5</span>
+          <h2 class="display-heading">Your details</h2>
+          <div class="field-group">
+            <label for="full-name">Full name</label>
+            <input type="text" id="full-name" name="fullName" placeholder="Your name" required>
+          </div>
+          <div class="field-group">
+            <label for="phone">Phone number</label>
+            <input type="tel" id="phone" name="phone" placeholder="Your phone number" required>
+          </div>
+          <div class="field-group">
+            <label for="fitting-date">Preferred fitting date</label>
+            <input type="date" id="fitting-date" name="fittingDate">
+          </div>
+          <div class="form-nav">
+            <button type="button" data-step-prev class="btn btn--outline-dark">Back</button>
+            <button type="button" data-step-next class="btn btn--primary">Next</button>
+          </div>
+        </div>
+
+        <!-- STEP 5: REVIEW & SUBMIT -->
+        <div data-step class="form-step">
+          <span class="form-step__label">Step 5 of 5</span>
+          <h2 class="display-heading">Review &amp; send</h2>
+          <ul class="review-list" id="review-list">
+            <!-- populated by JS -->
+          </ul>
+          <p style="font-size: var(--fs-small); color: var(--color-text-on-wash-muted); margin-bottom: var(--space-md);">
+            Tapping "Send Booking" opens WhatsApp with your details pre-filled. Nothing is sent until you hit send there.
+          </p>
+          <div class="form-nav">
+            <button type="button" data-step-prev class="btn btn--outline-dark">Back</button>
+            <button type="button" id="submit-booking" class="btn btn--primary">Send Booking</button>
+          </div>
+        </div>
+
+      </form>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__top">
+      <span class="credential-badge">Certified Obioma</span>
+      <nav class="site-footer__nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="shop.html">Shop</a>
+        <a href="size-guide.html">Size Guide</a>
+        <a href="fabric.html">Fabric &amp; Sourcing</a>
+        <a href="pricing.html">Price List</a>
+        <a href="booking.html">Book a Fitting</a>
+        <a href="corporate.html">Corporate &amp; Bulk</a>
+        <a href="contact.html">Contact &amp; FAQ</a>
+      </nav>
+    </div>
+    <div class="site-footer__bottom">
+      <span>&copy; 2026 Gabyhart Stitches</span>
+      <span>Ekpoma, Nigeria</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/2348104826994" class="whatsapp-float" aria-label="Chat on WhatsApp" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.9C21.96 6.45 17.5 2 12.04 2zm5.8 14.08c-.24.68-1.19 1.24-1.96 1.4-.52.11-1.2.2-3.49-.75-2.93-1.21-4.82-4.19-4.97-4.38-.14-.2-1.19-1.58-1.19-3.01s.74-2.13 1-2.42c.26-.3.57-.37.76-.37.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.57.81 1.98.88 2.12.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.52 1.89 1.05.93 1.93 1.22 2.21 1.36.28.14.44.12.6-.07.16-.19.68-.79.86-1.06.18-.28.36-.23.6-.14.24.09 1.55.73 1.82.86.27.14.44.2.51.31.07.12.07.66-.17 1.34z"/></svg>
+</a>
+
+<script src="js/main.js"></script>
+<script>
+  /* ---- BOOKING FORM: Review Summary + WhatsApp Submit ---- */
+  /* Wrapped defensively per rule 7 — only runs if booking-form exists on this page. */
+  (function initBookingReview() {
+    try {
+      var form = document.getElementById('booking-form');
+      var reviewList = document.getElementById('review-list');
+      var submitBtn = document.getElementById('submit-booking');
+      if (!form || !reviewList || !submitBtn) return;
+
+      var steps = form.querySelectorAll('[data-step]');
+      var nextButtons = form.querySelectorAll('[data-step-next]');
+      var progressDots = document.querySelectorAll('.form-progress__dot');
+
+      // sync progress dots whenever a step nav button is used
+      var syncProgress = function () {
+        var visibleIndex = 0;
+        steps.forEach(function (step, i) {
+          if (step.style.display !== 'none') visibleIndex = i;
+        });
+        progressDots.forEach(function (dot, i) {
+          dot.classList.toggle('is-active', i <= visibleIndex);
+        });
+      };
+
+      form.querySelectorAll('[data-step-next], [data-step-prev]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          setTimeout(syncProgress, 0);
+        });
+      });
+
+      // build review list right before entering step 5
+      nextButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var garment = form.querySelector('input[name="garment"]:checked');
+          var data = {
+            'Garment': garment ? garment.value : '',
+            'Color / Fabric': form.querySelector('#color-pref').value || 'Not specified',
+            'Monogramming': form.querySelector('#monogram').value,
+            'Occasion': form.querySelector('#occasion').value || 'Not specified',
+            'Name': form.querySelector('#full-name').value || 'Not provided',
+            'Phone': form.querySelector('#phone').value || 'Not provided',
+            'Fitting Date': form.querySelector('#fitting-date').value || 'Flexible'
+          };
+          reviewList.innerHTML = '';
+          Object.keys(data).forEach(function (key) {
+            var li = document.createElement('li');
+            li.innerHTML = '<span>' + key + '</span><span>' + data[key] + '</span>';
+            reviewList.appendChild(li);
+          });
+        });
+      });
+
+      submitBtn.addEventListener('click', function () {
+        var garment = form.querySelector('input[name="garment"]:checked');
+        var name = form.querySelector('#full-name').value || 'Not provided';
+        var phone = form.querySelector('#phone').value || 'Not provided';
+        var colorPref = form.querySelector('#color-pref').value || 'Not specified';
+        var monogram = form.querySelector('#monogram').value;
+        var occasion = form.querySelector('#occasion').value || 'Not specified';
+        var measurements = form.querySelector('#measurements').value || 'To be taken at fitting';
+        var fittingDate = form.querySelector('#fitting-date').value || 'Flexible';
+
+        var message = 'Hi, I would like to book a fitting.\n\n'
+          + 'Garment: ' + (garment ? garment.value : 'Not specified') + '\n'
+          + 'Color / Fabric: ' + colorPref + '\n'
+          + 'Monogramming: ' + monogram + '\n'
+          + 'Occasion: ' + occasion + '\n'
+          + 'Measurements: ' + measurements + '\n'
+          + 'Name: ' + name + '\n'
+          + 'Phone: ' + phone + '\n'
+          + 'Preferred Fitting Date: ' + fittingDate;
+
+        var waUrl = 'https://wa.me/2348104826994?text=' + encodeURIComponent(message);
+        window.open(waUrl, '_blank', 'noopener');
+      });
+    } catch (err) {
+      console.error('[booking-review]', err);
+    }
+  })();
+</script>
+</body>
+</html>
