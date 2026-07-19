@@ -1,12 +1,12 @@
 /* ==========================================================================
-   GABYHART STITCHES — Main Stylesheet (v6)
-   Refinement pass inspired by Escape House's arrangement: wider label
-   tracking, an italic accent style for subhead moments, cleaner button
-   spacing. Structure/layout of existing pages unchanged — only values
-   and new optional classes added.
+   GABYHART STITCHES — Main Stylesheet (v7)
+   Client feedback: body text should be centered, not left/one-sided
+   (Escape House reference). All paragraph text now centered site-wide,
+   with max-width preserved per paragraph to keep line length readable.
    ========================================================================== */
 
 /* ---- RESET ---- */
+*, *::before, *::as {}
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { scroll-behavior: smooth; }
@@ -37,6 +37,14 @@ h1, h2, h3, h4 {
   font-weight: 800;
   line-height: 1.2;
   text-align: center;
+}
+
+/* body copy — centered site-wide per client request, max-width per
+   paragraph (set inline per element) keeps line length readable */
+p {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ---- LAYOUT UTILITIES ---- */
@@ -72,7 +80,6 @@ h1, h2, h3, h4 {
   background-size: 28px 28px;
 }
 
-/* eyebrow — wider, airier tracking (Escape House reference) */
 .eyebrow {
   font-family: var(--font-structural);
   font-weight: 800;
@@ -89,8 +96,6 @@ h1, h2, h3, h4 {
   color: var(--color-sky-300);
 }
 
-/* NEW: italic serif accent line — for subhead/tagline moments,
-   e.g. "Crafted to capture your essence." */
 .accent-line {
   font-family: var(--font-display);
   font-style: italic;
@@ -99,7 +104,6 @@ h1, h2, h3, h4 {
   color: var(--color-blue-600);
 }
 
-/* NEW: small hairline divider, centered — sits between headline and subhead */
 .hairline-divider {
   width: 48px;
   height: 1px;
@@ -156,8 +160,6 @@ h1, h2, h3, h4 {
 }
 .btn--outline-dark:hover { border-color: var(--color-blue-600); color: var(--color-blue-600); }
 
-/* NEW: stacked full-width button group — for hero moments, mirrors
-   Escape House's solid-then-outline vertical stack on mobile */
 .btn-stack {
   display: flex;
   flex-direction: column;
@@ -167,6 +169,13 @@ h1, h2, h3, h4 {
   margin: var(--space-lg) auto 0;
 }
 .btn-stack .btn { width: 100%; }
+
+/* buttons and links that sit inside centered paragraphs/containers
+   should center themselves as a block too */
+.container > .btn,
+.container > a.btn {
+  display: inline-flex;
+}
 
 /* ---- HEADER ---- */
 .site-header {
