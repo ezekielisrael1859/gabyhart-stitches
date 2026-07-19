@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ezekielisrael1859.github.io/gabyhart-stitches/sitemap.xml
