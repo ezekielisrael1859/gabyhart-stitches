@@ -1,10 +1,8 @@
 /* ==========================================================================
-   GABYHART STITCHES — Design Tokens (v4)
-   Dominant palette = client-specified soft periwinkle/powder blue wash.
-   Exact hex values locked by client, do not alter:
-     #B5CBE6 (periwinkle ice blue) / #C9DBF0 (pale powder blue)
-   The vivid cobalt-to-azure gradient is now a SMALL accent only
-   (logo wordmark, links, buttons) — never a full section background.
+   GABYHART STITCHES — Design Tokens (v6)
+   Client feedback: ALL blue tones too bright/vivid across the entire site
+   (buttons, links, logo gradient, accents) — reads as overshadowing text.
+   Every blue token toned down together. Wash palette (client-locked) unchanged.
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;0,6..96,800;1,6..96,400&family=Manrope:wght@400;500;600;700;800&display=swap');
@@ -12,48 +10,47 @@
 :root {
 
   /* ---- COLOR: DOMINANT — soft periwinkle/powder blue wash (client-locked) ---- */
-  --color-wash-mid: #B5CBE6;    /* mid-tone periwinkle ice blue */
-  --color-wash-pale: #C9DBF0;   /* soft pale powder blue */
-  --color-wash-light: #E4EDF8;  /* lightest tint — near-top of gradient, for text contrast areas */
-  --color-wash-deep: #9FB9DC;   /* slightly deeper variant for subtle section alternation only */
+  --color-wash-mid: #B5CBE6;
+  --color-wash-pale: #C9DBF0;
+  --color-wash-light: #E4EDF8;
+  --color-wash-deep: #9FB9DC;
 
-  /* dominant background gradient — smooth, no banding, matches client reference */
   --gradient-wash: radial-gradient(circle at 20% 85%, var(--color-wash-light) 0%, var(--color-wash-mid) 45%, var(--color-wash-pale) 100%);
 
-  /* ---- COLOR: BRAND ACCENT — vivid gradient sampled from logo letters (small use only) ---- */
-  --color-cobalt-900: #060f3d;   /* logo's darkest corner — headings, nav text on light bg */
+  /* ---- COLOR: BRAND ACCENT — toned down across the board per client request ---- */
+  --color-cobalt-900: #060f3d;   /* deepest — unchanged, used sparingly */
   --color-cobalt-800: #0a2b7a;
-  --color-blue-600:   #0d6fe0;
-  --color-sky-400:    #1396f0;   /* vivid azure — links, button fills, hover states */
-  --color-sky-300:    #4dbcf5;
-  --color-sky-line:   rgba(19, 150, 240, 0.3);
+  --color-blue-600:   #0a3f8c;   /* darkened — labels, links, readable text */
+  --color-sky-400:    #2d5f9c;   /* darkened from vivid #1396f0 — now used for buttons, logo gradient end, accents */
+  --color-sky-300:    #5a7fb0;   /* darkened from #4dbcf5 — hover/glow states */
+  --color-sky-line:   rgba(45, 95, 156, 0.3);
 
   --gradient-brand: linear-gradient(100deg, var(--color-cobalt-900) 0%, var(--color-blue-600) 55%, var(--color-sky-400) 100%);
 
-  /* ---- COLOR: DEEP NAVY (fine detail — dividers, small credential text) ---- */
+  /* ---- COLOR: DEEP NAVY ---- */
   --color-navy-ink: #060f3d;
 
-  /* ---- TEXT ---- */
-  --color-text-on-wash: #17224f;        /* dark navy text on the light wash background */
-  --color-text-on-wash-muted: #4a5578;
-  --color-text-on-dark: #f4f7fc;        /* for the rare dark/brand-gradient section */
+  /* ---- TEXT — darkened for stronger legibility ---- */
+  --color-text-on-wash: #0c1638;
+  --color-text-on-wash-muted: #37416b;
+  --color-text-on-dark: #f4f7fc;
   --color-text-on-dark-muted: #c2d2ee;
 
   /* ---- FONTS ---- */
   --font-display: 'Bodoni Moda', 'Times New Roman', serif;
   --font-structural: 'Manrope', -apple-system, sans-serif;
 
-  /* ---- TYPE SCALE ---- */
-  --fs-hero: clamp(2.75rem, 9vw, 6rem);
-  --fs-h1: clamp(2.25rem, 6vw, 4rem);
-  --fs-h2: clamp(1.75rem, 4.5vw, 2.75rem);
-  --fs-h3: clamp(1.25rem, 3vw, 1.75rem);
-  --fs-body-lg: 1.125rem;
-  --fs-body: 1rem;
-  --fs-small: 0.875rem;
-  --fs-label: 0.75rem;
+  /* ---- TYPE SCALE — enlarged for legibility per client feedback ---- */
+  --fs-hero: clamp(3rem, 10vw, 6.5rem);
+  --fs-h1: clamp(2.5rem, 6.5vw, 4.25rem);
+  --fs-h2: clamp(2rem, 5vw, 3rem);
+  --fs-h3: clamp(1.4rem, 3.3vw, 1.9rem);
+  --fs-body-lg: 1.25rem;
+  --fs-body: 1.0625rem;
+  --fs-small: 0.9375rem;
+  --fs-label: 0.8125rem;
 
-  /* ---- STRUCTURAL TEXT (nav/labels/buttons) ---- */
+  /* ---- STRUCTURAL TEXT ---- */
   --tracking-wide: 0.08em;
   --tracking-wider: 0.14em;
 
@@ -68,16 +65,16 @@
   --space-2xl: 6rem;
   --space-3xl: 9rem;
 
-  /* ---- RADIUS (near-zero, per design direction) ---- */
+  /* ---- RADIUS ---- */
   --radius-none: 0;
   --radius-hairline: 1px;
 
   /* ---- BORDERS ---- */
-  --border-hairline-wash: 1px solid rgba(23, 34, 79, 0.15);
+  --border-hairline-wash: 1px solid rgba(12, 22, 56, 0.18);
   --border-hairline-sky: 1px solid var(--color-sky-line);
   --border-hairline-navy: 1px solid var(--color-navy-ink);
 
-  /* ---- MOTION (restrained — scroll-reveal + one subtle parallax only) ---- */
+  /* ---- MOTION ---- */
   --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
   --duration-fast: 200ms;
   --duration-base: 400ms;

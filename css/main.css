@@ -1,7 +1,8 @@
 /* ==========================================================================
-   GABYHART STITCHES — Main Stylesheet (v3)
-   Dominant = soft periwinkle/powder-blue wash (client-locked colors).
-   Vivid brand gradient = accent only (logo, buttons, links, rare CTA).
+   GABYHART STITCHES — Main Stylesheet (v4)
+   Client feedback: text needs to be bolder/more legible; blue tones (now
+   fixed in tokens.css) were overshadowing the copy. Font weights increased
+   across headings, body text, and buttons.
    ========================================================================== */
 
 /* ---- RESET ---- */
@@ -12,9 +13,10 @@ html { scroll-behavior: smooth; }
 body {
   font-family: var(--font-structural);
   font-size: var(--fs-body);
+  font-weight: 500;
   background: var(--color-wash-pale);
   color: var(--color-text-on-wash);
-  line-height: 1.6;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -29,7 +31,7 @@ button { font-family: inherit; background: none; border: none; cursor: pointer; 
 
 input, textarea, select { font-family: inherit; font-size: inherit; color: inherit; background: none; border: none; }
 
-h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height: 1.15; }
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; line-height: 1.15; }
 
 /* ---- LAYOUT UTILITIES ---- */
 .container {
@@ -43,7 +45,6 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
   padding: var(--space-2xl) 0;
 }
 
-/* two light variants for subtle alternating rhythm — both stay within the wash */
 .section--light {
   background: var(--color-wash-light);
   color: var(--color-text-on-wash);
@@ -54,15 +55,20 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
   color: var(--color-text-on-wash);
 }
 
-/* rare vivid moment — hero and final CTA only, per client's "small accent" direction */
 .section--brand {
   background: var(--gradient-brand);
   color: var(--color-text-on-dark);
 }
 
+.section--dark.has-texture,
+.section--brand.has-texture {
+  background-image: radial-gradient(var(--color-mist-texture, rgba(12,22,56,0.04)) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
 .eyebrow {
   font-family: var(--font-structural);
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: var(--tracking-wider);
   font-size: var(--fs-label);
@@ -81,7 +87,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
   align-items: center;
   justify-content: center;
   font-family: var(--font-structural);
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: var(--tracking-wide);
   font-size: var(--fs-small);
@@ -103,9 +109,9 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
 .btn--outline {
   background: transparent;
   color: var(--color-text-on-wash);
-  border-color: rgba(23, 34, 79, 0.25);
+  border-color: rgba(12, 22, 56, 0.3);
 }
-.btn--outline:hover { border-color: var(--color-sky-400); color: var(--color-blue-600); }
+.btn--outline:hover { border-color: var(--color-blue-600); color: var(--color-blue-600); }
 
 .section--brand .btn--outline {
   color: var(--color-text-on-dark);
@@ -116,7 +122,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
 .btn--outline-dark {
   background: transparent;
   color: var(--color-text-on-wash);
-  border-color: rgba(23, 34, 79, 0.25);
+  border-color: rgba(12, 22, 56, 0.3);
 }
 .btn--outline-dark:hover { border-color: var(--color-blue-600); color: var(--color-blue-600); }
 
@@ -127,7 +133,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
   height: var(--header-height);
   display: flex;
   align-items: center;
-  background: rgba(228, 237, 248, 0.88);
+  background: rgba(228, 237, 248, 0.92);
   backdrop-filter: blur(6px);
   border-bottom: var(--border-hairline-wash);
   z-index: var(--z-header);
@@ -140,8 +146,6 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
   width: 100%;
 }
 
-/* logo lockup — full wordmark, vivid gradient text (its one accent use),
-   swappable for real <img> logo file later without restructuring header */
 .logo-mark {
   display: flex;
   align-items: baseline;
@@ -151,32 +155,31 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
 .logo-mark__wordmark {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   line-height: 1;
   background: var(--gradient-brand);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  color: var(--color-cobalt-900); /* fallback if gradient text unsupported */
+  color: var(--color-cobalt-900);
   white-space: nowrap;
 }
 
 .logo-mark__credential {
   font-family: var(--font-structural);
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: var(--tracking-wide);
   font-size: 0.55rem;
   color: var(--color-blue-600);
 }
 
-/* standalone credential badge — used on About page + footer */
 .credential-badge {
   display: inline-flex;
   align-items: center;
   gap: var(--space-xs);
   font-family: var(--font-structural);
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: var(--tracking-wider);
   font-size: var(--fs-label);
@@ -189,10 +192,9 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
   display: inline-block;
   width: 24px;
   height: 1px;
-  background: rgba(23, 34, 79, 0.25);
+  background: rgba(12, 22, 56, 0.25);
 }
 
-/* nav toggle button (hamburger) */
 .nav-toggle {
   display: flex;
   flex-direction: column;
@@ -206,7 +208,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
 
 .nav-toggle span {
   display: block;
-  height: 2px;
+  height: 2.5px;
   width: 100%;
   background: var(--color-navy-ink);
   transition: transform var(--duration-base) var(--ease-standard),
@@ -247,10 +249,10 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
 
 .site-nav__link {
   font-family: var(--font-structural);
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: var(--tracking-wide);
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   color: var(--color-navy-ink);
   padding: var(--space-2xs) 0;
   border-bottom: 1px solid transparent;
@@ -288,7 +290,7 @@ body.nav-open { overflow: hidden; }
 
 .site-footer__nav a {
   font-size: var(--fs-small);
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: var(--tracking-wide);
   color: var(--color-text-on-wash);
@@ -301,6 +303,7 @@ body.nav-open { overflow: hidden; }
   border-top: var(--border-hairline-wash);
   padding-top: var(--space-md);
   font-size: var(--fs-label);
+  font-weight: 600;
   color: var(--color-text-on-wash-muted);
   display: flex;
   flex-wrap: wrap;
@@ -357,11 +360,12 @@ body.nav-open { overflow: hidden; }
 .display-heading {
   font-family: var(--font-display);
   font-style: normal;
+  font-weight: 700;
 }
 
 .hero-heading {
   font-size: var(--fs-hero);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 /* ---- MAIN CONTENT OFFSET (fixed header) ---- */
