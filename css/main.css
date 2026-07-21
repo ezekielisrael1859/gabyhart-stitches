@@ -507,3 +507,11 @@ main { padding-top: var(--header-height); }
     aspect-ratio: auto;
   }
 }
+
+/* Force light text on hero since it now sits over a photo */
+.hero,
+.hero .eyebrow,
+.hero .hero-heading,
+.hero p {
+  color: var(--color-text-on-dark);
+}
