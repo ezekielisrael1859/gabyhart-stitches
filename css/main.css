@@ -565,3 +565,20 @@ main { padding-top: var(--header-height); }
 .badge--placeholder {
   background: var(--color-sky-300);
 }
+
+/* Script accent + stacked bold headline */
+.script-accent {
+  display: block;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: var(--fs-h3);
+  color: var(--color-sky-400);
+  margin-bottom: -0.2em;
+}
+
+.stacked-heading {
+  font-size: var(--fs-h1);
+  line-height: 1.05;
+  font-weight: 800;
+}
