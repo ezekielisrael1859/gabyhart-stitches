@@ -210,6 +210,31 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   })();
 
+  /* ---- FEATURE: Shop Tabs (Shop / Prices / Sizing) ---- */
+  (function initShopTabs() {
+    try {
+      var tabButtons = document.querySelectorAll('[data-tab-btn]');
+      var tabPanels = document.querySelectorAll('[data-tab-panel]');
+      if (!tabButtons.length || !tabPanels.length) return;
+
+      tabButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var target = btn.getAttribute('data-tab-btn');
+
+          tabButtons.forEach(function (b) { b.classList.remove('is-active'); });
+          btn.classList.add('is-active');
+
+          tabPanels.forEach(function (panel) {
+            var show = panel.getAttribute('data-tab-panel') === target;
+            panel.hidden = !show;
+          });
+        });
+      });
+    } catch (err) {
+      console.error('[shop tabs]', err);
+    }
+  })();
+
 });
 
 /* ==========================================================================

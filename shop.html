@@ -14,6 +14,33 @@
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/main.css">
 <style>
+  .shop-tabs {
+    display: flex;
+    border: var(--border-hairline-sky);
+    margin-bottom: var(--space-lg);
+  }
+  .shop-tabs__btn {
+    flex: 1;
+    font-family: var(--font-structural);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    font-size: var(--fs-small);
+    padding: var(--space-sm) var(--space-xs);
+    background: transparent;
+    color: var(--color-text-on-wash-muted);
+    border: none;
+    cursor: pointer;
+    transition: background var(--duration-fast) var(--ease-standard),
+                color var(--duration-fast) var(--ease-standard);
+  }
+  .shop-tabs__btn:not(:last-child) {
+    border-right: var(--border-hairline-sky);
+  }
+  .shop-tabs__btn.is-active {
+    background: var(--color-sky-400);
+    color: #ffffff;
+  }
   .product-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -42,6 +69,84 @@
     letter-spacing: var(--tracking-wide);
     margin-top: 2px;
   }
+  .ledger {
+    margin-top: var(--space-lg);
+  }
+  .ledger__category {
+    font-family: var(--font-structural);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+    font-size: var(--fs-label);
+    color: var(--color-blue-600);
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-sm);
+  }
+  .ledger__category:first-child { margin-top: 0; }
+  .ledger__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-md);
+    padding: var(--space-sm) 0;
+    border-bottom: var(--border-hairline-wash);
+  }
+  .ledger__name {
+    text-align: left;
+    font-family: var(--font-display);
+    font-size: var(--fs-body-lg);
+  }
+  .ledger__note {
+    text-align: left;
+    display: block;
+    font-family: var(--font-structural);
+    font-size: var(--fs-label);
+    color: var(--color-text-on-wash-muted);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    margin-top: 2px;
+  }
+  .ledger__price {
+    font-family: var(--font-structural);
+    font-weight: 700;
+    font-size: var(--fs-body);
+    white-space: nowrap;
+    text-align: right;
+  }
+  .ledger__price--tbc {
+    color: var(--color-text-on-wash-muted);
+    font-weight: 500;
+    font-style: italic;
+  }
+  .measure-list {
+    counter-reset: measure;
+    margin-top: var(--space-lg);
+  }
+  .measure-item {
+    display: flex;
+    gap: var(--space-md);
+    padding: var(--space-md) 0;
+    border-bottom: var(--border-hairline-wash);
+  }
+  .measure-item__num {
+    counter-increment: measure;
+    font-family: var(--font-display);
+    font-size: var(--fs-h3);
+    color: var(--color-blue-600);
+    flex-shrink: 0;
+    width: 2ch;
+  }
+  .measure-item__num::before { content: counter(measure); }
+  .measure-item__name {
+    font-family: var(--font-display);
+    font-size: var(--fs-body-lg);
+    margin-bottom: 4px;
+  }
+  .measure-item__desc {
+    color: var(--color-text-on-wash-muted);
+    font-size: var(--fs-small);
+    max-width: 40ch;
+  }
 </style>
 </head>
 <body>
@@ -62,9 +167,7 @@
   <a href="about.html" class="site-nav__link">About</a>
   <a href="gallery.html" class="site-nav__link">Gallery</a>
   <a href="shop.html" class="site-nav__link is-active">Shop</a>
-  <a href="size-guide.html" class="site-nav__link">Size Guide</a>
   <a href="fabric.html" class="site-nav__link">Fabric &amp; Sourcing</a>
-  <a href="pricing.html" class="site-nav__link">Price List</a>
   <a href="booking.html" class="site-nav__link">Book a Fitting</a>
   <a href="training.html" class="site-nav__link">Training</a>
   <a href="contact.html" class="site-nav__link">Contact &amp; FAQ</a>
@@ -80,10 +183,20 @@
     </div>
   </section>
 
-  <!-- PRODUCT GRID -->
-  <section class="section section--light reveal">
+  <!-- TAB SWITCHER -->
+  <section class="section section--light" style="padding-top: var(--space-md); padding-bottom: 0;">
     <div class="container">
+      <div class="shop-tabs">
+        <button type="button" class="shop-tabs__btn is-active" data-tab-btn="shop">Shop</button>
+        <button type="button" class="shop-tabs__btn" data-tab-btn="prices">Prices</button>
+        <button type="button" class="shop-tabs__btn" data-tab-btn="sizing">Sizing</button>
+      </div>
+    </div>
+  </section>
 
+  <!-- TAB PANEL: SHOP -->
+  <section class="section section--light reveal" data-tab-panel="shop">
+    <div class="container">
       <div class="product-grid">
 
         <a href="shop/senator-navy.html" class="product-card">
@@ -114,16 +227,156 @@
         </a>
 
       </div>
-
     </div>
   </section>
 
-  <!-- CUSTOM ORDER CTA -->
-  <section class="section section--dark has-texture reveal">
+  <!-- TAB PANEL: PRICES -->
+  <section class="section section--light reveal" data-tab-panel="prices" hidden>
+    <div class="container">
+
+      <p style="max-width: 44ch; color: var(--color-text-on-wash-muted); margin-bottom: var(--space-lg);">
+        Prices below cover ready-to-wear pieces. Custom, made-to-order pricing is confirmed at your fitting based on fabric and detail.
+      </p>
+
+      <div class="ledger">
+
+        <p class="ledger__category">Senators &amp; Formalwear</p>
+
+        <div class="ledger__row">
+          <span class="ledger__name">Navy Senator, Monogrammed<span class="ledger__note">DTF monogramming included</span></span>
+          <span class="ledger__price">&#8358;55,000</span>
+        </div>
+
+        <div class="ledger__row">
+          <span class="ledger__name">Custom Senator<span class="ledger__note">Made-to-order, placeholder</span></span>
+          <span class="ledger__price ledger__price--tbc">Price TBC</span>
+        </div>
+
+        <p class="ledger__category">Kaftans &amp; Agbada</p>
+
+        <div class="ledger__row">
+          <span class="ledger__name">Classic Kaftan<span class="ledger__note">Placeholder</span></span>
+          <span class="ledger__price ledger__price--tbc">Price TBC</span>
+        </div>
+
+        <div class="ledger__row">
+          <span class="ledger__name">Agbada, Full Set<span class="ledger__note">Placeholder</span></span>
+          <span class="ledger__price ledger__price--tbc">Price TBC</span>
+        </div>
+
+        <p class="ledger__category">Shirts</p>
+
+        <div class="ledger__row">
+          <span class="ledger__name">Vintage Shirt<span class="ledger__note">Placeholder</span></span>
+          <span class="ledger__price ledger__price--tbc">Price TBC</span>
+        </div>
+
+        <div class="ledger__row">
+          <span class="ledger__name">Custom Shirt<span class="ledger__note">Made-to-order, placeholder</span></span>
+          <span class="ledger__price ledger__price--tbc">Price TBC</span>
+        </div>
+
+        <p class="ledger__category">Denim &amp; Street Wear</p>
+
+        <div class="ledger__row">
+          <span class="ledger__name">Street Denim</span>
+          <span class="ledger__price">&#8358;50,000</span>
+        </div>
+
+        <div class="ledger__row">
+          <span class="ledger__name">Tailored Trousers<span class="ledger__note">Placeholder</span></span>
+          <span class="ledger__price ledger__price--tbc">Price TBC</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB PANEL: SIZING -->
+  <section class="section section--light reveal" data-tab-panel="sizing" hidden>
+    <div class="container">
+
+      <p style="max-width: 46ch; color: var(--color-text-on-wash-muted); margin-bottom: var(--space-md);">
+        Not sure how to measure yourself? Use a soft tape measure, stand naturally, and have someone help if possible. You can send us these numbers when you book a fitting &mdash; or skip this and we'll measure you in person.
+      </p>
+      <img src="images/size-guide-diagram.jpg" alt="Self-measurement diagram" loading="lazy" style="margin-bottom: var(--space-lg);">
+
+      <div class="measure-list">
+
+        <div class="measure-item">
+          <span class="measure-item__num"></span>
+          <div>
+            <p class="measure-item__name">Chest</p>
+            <p class="measure-item__desc">Wrap the tape around the fullest part of your chest, under your arms, keeping it level across your back.</p>
+          </div>
+        </div>
+
+        <div class="measure-item">
+          <span class="measure-item__num"></span>
+          <div>
+            <p class="measure-item__name">Waist</p>
+            <p class="measure-item__desc">Measure around your natural waistline, where your torso bends when you lean side to side.</p>
+          </div>
+        </div>
+
+        <div class="measure-item">
+          <span class="measure-item__num"></span>
+          <div>
+            <p class="measure-item__name">Hip</p>
+            <p class="measure-item__desc">Wrap the tape around the fullest part of your hips, keeping it level.</p>
+          </div>
+        </div>
+
+        <div class="measure-item">
+          <span class="measure-item__num"></span>
+          <div>
+            <p class="measure-item__name">Shoulder Width</p>
+            <p class="measure-item__desc">Measure from the edge of one shoulder to the other, across your back.</p>
+          </div>
+        </div>
+
+        <div class="measure-item">
+          <span class="measure-item__num"></span>
+          <div>
+            <p class="measure-item__name">Sleeve Length</p>
+            <p class="measure-item__desc">With your arm slightly bent, measure from the shoulder edge to your wrist bone.</p>
+          </div>
+        </div>
+
+        <div class="measure-item">
+          <span class="measure-item__num"></span>
+          <div>
+            <p class="measure-item__name">Neck</p>
+            <p class="measure-item__desc">Wrap the tape around the base of your neck, where a shirt collar would sit.</p>
+          </div>
+        </div>
+
+        <div class="measure-item">
+          <span class="measure-item__num"></span>
+          <div>
+            <p class="measure-item__name">Trouser Length</p>
+            <p class="measure-item__desc">Measure from your waist down to where you'd like the trouser hem to fall.</p>
+          </div>
+        </div>
+
+        <div class="measure-item">
+          <span class="measure-item__num"></span>
+          <div>
+            <p class="measure-item__name">Inseam</p>
+            <p class="measure-item__desc">Measure from your crotch down to your ankle, along the inside of your leg.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="section section--dark has-texture reveal" style="text-align: center;">
     <div class="container">
       <span class="eyebrow">Not Finding Your Fit?</span>
       <h2 class="display-heading" style="font-size: var(--fs-h2); margin-bottom: var(--space-sm);">Go made-to-order.</h2>
-      <p style="max-width: 42ch; color: var(--color-text-on-wash-muted); margin-bottom: var(--space-md);">
+      <p style="max-width: 42ch; color: var(--color-text-on-wash-muted); margin-bottom: var(--space-md); margin-left: auto; margin-right: auto;">
         Every piece can be built to your exact measurements. Book a fitting and we'll take it from there.
       </p>
       <a href="booking.html" class="btn btn--outline">Book a Fitting</a>
@@ -141,9 +394,7 @@
         <a href="about.html">About</a>
         <a href="gallery.html">Gallery</a>
         <a href="shop.html">Shop</a>
-        <a href="size-guide.html">Size Guide</a>
         <a href="fabric.html">Fabric &amp; Sourcing</a>
-        <a href="pricing.html">Price List</a>
         <a href="booking.html">Book a Fitting</a>
         <a href="training.html">Training</a>
         <a href="contact.html">Contact &amp; FAQ</a>
