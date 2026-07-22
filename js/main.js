@@ -210,6 +210,28 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   })();
 
+  /* ---- FEATURE: Sticky Book a Fitting bar (shows after hero scrolled past) ---- */
+  (function initStickyCta() {
+    try {
+      var bar = document.querySelector('.sticky-cta');
+      var hero = document.querySelector('.hero');
+      if (!bar || !hero) return;
+
+      var toggleBar = function () {
+        var heroBottom = hero.getBoundingClientRect().bottom;
+        if (heroBottom < 0) {
+          bar.classList.add('is-visible');
+        } else {
+          bar.classList.remove('is-visible');
+        }
+      };
+
+      window.addEventListener('scroll', toggleBar, { passive: true });
+    } catch (err) {
+      console.error('[sticky-cta]', err);
+    }
+  })();
+
 });
 
 /* ==========================================================================
