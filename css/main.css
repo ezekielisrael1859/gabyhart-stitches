@@ -664,3 +664,30 @@ main { padding-top: var(--header-height); }
   opacity: 0.85;
   margin-top: 4px;
 }
+
+/* Animated stats counter */
+.stats-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-xl);
+  text-align: center;
+  padding: var(--space-lg) 0;
+}
+
+.stat-item__number {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: var(--fs-h1);
+  color: var(--color-blue-600);
+}
+
+.stat-item__label {
+  display: block;
+  font-size: var(--fs-body-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-on-wash-muted);
+  margin-top: 4px;
+}

@@ -232,6 +232,43 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   })();
 
+  /* ---- FEATURE: Animated stat counters (counts up when scrolled into view) ---- */
+  (function initStatCounters() {
+    try {
+      var counters = document.querySelectorAll('.stat-item__number');
+      if (!counters.length) return;
+
+      var animateCount = function (el) {
+        var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+        var current = 0;
+        var step = Math.max(1, Math.ceil(target / 40));
+        var tick = function () {
+          current += step;
+          if (current >= target) {
+            el.textContent = target;
+          } else {
+            el.textContent = current;
+            requestAnimationFrame(tick);
+          }
+        };
+        tick();
+      };
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            animateCount(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      });
+
+      counters.forEach(function (el) { observer.observe(el); });
+    } catch (err) {
+      console.error('[stat-counters]', err);
+    }
+  })();
+
 });
 
 /* ==========================================================================
