@@ -691,3 +691,40 @@ main { padding-top: var(--header-height); }
   color: var(--color-text-on-wash-muted);
   margin-top: 4px;
 }
+
+/* Alternating split image/text blocks */
+.split-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  align-items: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.split-block__image img {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 6px;
+  display: block;
+  margin: 0 auto;
+}
+
+.split-block__text {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .split-block {
+    flex-direction: row;
+    text-align: left;
+  }
+  .split-block--reverse {
+    flex-direction: row-reverse;
+  }
+  .split-block__image, .split-block__text {
+    flex: 1;
+  }
+  .split-block__text {
+    text-align: left;
+  }
+}
