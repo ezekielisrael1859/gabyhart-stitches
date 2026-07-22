@@ -765,3 +765,15 @@ main { padding-top: var(--header-height); }
   letter-spacing: var(--tracking-wide);
   color: var(--color-blue-600);
 }
+
+/* Gallery grid item wrapper (for badge positioning) */
+.gallery-grid__item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.gallery-grid__item img {
+  display: block;
+  width: 100%;
+}
