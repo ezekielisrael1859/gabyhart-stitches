@@ -628,3 +628,39 @@ main { padding-top: var(--header-height); }
   display: block;
   width: 100%;
 }
+
+/* Floating credential card - overlaps hero/next-section boundary */
+.hero {
+  overflow: visible;
+}
+
+.floating-card {
+  position: relative;
+  z-index: 10;
+  max-width: 280px;
+  margin: 0 auto;
+  transform: translateY(50%);
+  background: var(--color-blue-600);
+  padding: var(--space-md) var(--space-lg);
+  border-radius: 6px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(6, 15, 61, 0.35);
+}
+
+.floating-card__label {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: var(--fs-body-sm);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-text-on-dark);
+}
+
+.floating-card__sub {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--color-text-on-dark);
+  opacity: 0.85;
+  margin-top: 4px;
+}
