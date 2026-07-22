@@ -515,3 +515,53 @@ main { padding-top: var(--header-height); }
 .hero p {
   color: var(--color-text-on-dark);
 }
+
+/* Marquee scrolling strip */
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  background: var(--color-cobalt-900);
+  padding: var(--space-sm) 0;
+}
+
+.marquee__track {
+  display: inline-block;
+  animation: marquee-scroll 20s linear infinite;
+}
+
+.marquee__track span {
+  display: inline-block;
+  padding: 0 var(--space-lg);
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: var(--fs-body-sm);
+  letter-spacing: 0.08em;
+  color: var(--color-text-on-dark);
+  text-transform: uppercase;
+}
+
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Badge / tag chips */
+.badge {
+  position: absolute;
+  top: var(--space-sm);
+  left: var(--space-sm);
+  background: var(--color-blue-600);
+  color: var(--color-text-on-dark);
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 3px;
+  z-index: 2;
+}
+
+.badge--placeholder {
+  background: var(--color-sky-300);
+}
