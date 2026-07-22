@@ -728,3 +728,40 @@ main { padding-top: var(--header-height); }
     text-align: left;
   }
 }
+
+/* Testimonial quote cards */
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+.testimonial-card {
+  position: relative;
+  background: var(--color-wash-light);
+  border-radius: 6px;
+  padding: var(--space-lg) var(--space-md) var(--space-md);
+}
+
+.testimonial-card__mark {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--color-sky-300);
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+.testimonial-card__quote {
+  font-family: var(--font-display);
+  font-size: var(--fs-body-lg);
+  margin-bottom: var(--space-sm);
+}
+
+.testimonial-card__name {
+  font-size: var(--fs-small);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-blue-600);
+}
