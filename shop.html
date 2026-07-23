@@ -47,6 +47,56 @@
     gap: var(--space-md);
     margin-top: var(--space-lg);
   }
+  .product-item {
+    display: contents;
+  }
+  .product-card {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: transparent;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+  }
+  .product-detail {
+    grid-column: 1 / -1;
+    padding: var(--space-md) 0;
+    text-align: center;
+  }
+  .product-detail__image {
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    margin: 0 auto var(--space-md);
+  }
+  .product-detail__price {
+    font-family: var(--font-display);
+    font-size: var(--fs-h3);
+    margin: var(--space-2xs) 0 var(--space-md);
+  }
+  .product-detail__meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs);
+    margin: var(--space-md) auto;
+    padding: var(--space-md) 0;
+    max-width: 320px;
+    border-top: var(--border-hairline-wash);
+    border-bottom: var(--border-hairline-wash);
+  }
+  .product-detail__meta-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--fs-small);
+  }
+  .product-detail__meta-label {
+    color: var(--color-text-on-wash-muted);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+  }
   .product-card img {
     aspect-ratio: 3 / 4;
     object-fit: cover;
@@ -199,38 +249,144 @@
     <div class="container">
       <div class="product-grid">
 
-        <a href="shop/senator-navy.html" class="product-card">
-          <img src="images/shop-senator-navy.jpg" alt="Navy Senator, Monogrammed" loading="lazy">
-          <p class="product-card__name">Navy Senator</p>
-          <p class="product-card__price">&#8358;55,000</p>
-          <p class="product-card__note">Monogrammed</p>
-        </a>
+        <div class="product-item">
+          <button type="button" class="product-card" data-product-toggle="senator-navy">
+            <img src="images/shop-senator-navy.jpg" alt="Navy Senator, Monogrammed" loading="lazy">
+            <p class="product-card__name">Navy Senator</p>
+            <p class="product-card__price">&#8358;55,000</p>
+            <p class="product-card__note">Monogrammed</p>
+          </button>
+          <div class="product-detail" data-product-detail="senator-navy" hidden>
+            <img src="images/shop-senator-navy.jpg" alt="Navy Senator, Monogrammed" class="product-detail__image" loading="lazy">
+            <p class="product-detail__price">&#8358;55,000</p>
+            <p style="max-width: 44ch; color: var(--color-text-on-wash-muted);">
+              A precision-cut senator in deep navy, finished with DTF monogramming. Built for men who want their formalwear to read as intentional, not generic.
+            </p>
+            <div class="product-detail__meta">
+              <div class="product-detail__meta-row">
+                <span class="product-detail__meta-label">Fit</span>
+                <span>Tailored</span>
+              </div>
+              <div class="product-detail__meta-row">
+                <span class="product-detail__meta-label">Monogramming</span>
+                <span>Included (DTF)</span>
+              </div>
+              <div class="product-detail__meta-row">
+                <span class="product-detail__meta-label">Type</span>
+                <span>Ready-to-wear</span>
+              </div>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-sm);">
+              <a href="https://wa.me/2348104826994?text=Hi%2C%20I%27m%20interested%20in%20the%20Navy%20Senator%2C%20Monogrammed%20(%E2%82%A655%2C000)." class="btn btn--primary" target="_blank" rel="noopener">Order via WhatsApp</a>
+              <a href="booking.html" class="btn btn--outline-dark">Book a Fitting</a>
+            </div>
+          </div>
+        </div>
 
-        <a href="shop/denim-01.html" class="product-card">
-          <img src="images/shop-denim-01.jpg" alt="Street Denim" loading="lazy">
-          <p class="product-card__name">Street Denim</p>
-          <p class="product-card__price">&#8358;50,000</p>
-        </a>
+        <div class="product-item">
+          <button type="button" class="product-card" data-product-toggle="denim-01">
+            <img src="images/shop-denim-01.jpg" alt="Street Denim" loading="lazy">
+            <p class="product-card__name">Street Denim</p>
+            <p class="product-card__price">&#8358;50,000</p>
+          </button>
+          <div class="product-detail" data-product-detail="denim-01" hidden>
+            <img src="images/shop-denim-01.jpg" alt="Street Denim" class="product-detail__image" loading="lazy">
+            <p class="product-detail__price">&#8358;50,000</p>
+            <p style="max-width: 44ch; color: var(--color-text-on-wash-muted);">
+              Structured street denim, cut with the same precision as our formalwear. Built for everyday wear that still holds a sharp line.
+            </p>
+            <div class="product-detail__meta">
+              <div class="product-detail__meta-row">
+                <span class="product-detail__meta-label">Fit</span>
+                <span>Tailored</span>
+              </div>
+              <div class="product-detail__meta-row">
+                <span class="product-detail__meta-label">Style</span>
+                <span>Street wear</span>
+              </div>
+              <div class="product-detail__meta-row">
+                <span class="product-detail__meta-label">Type</span>
+                <span>Ready-to-wear</span>
+              </div>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-sm);">
+              <a href="https://wa.me/2348104826994?text=Hi%2C%20I%27m%20interested%20in%20the%20Street%20Denim%20(%E2%82%A650%2C000)." class="btn btn--primary" target="_blank" rel="noopener">Order via WhatsApp</a>
+              <a href="booking.html" class="btn btn--outline-dark">Book a Fitting</a>
+            </div>
+          </div>
+        </div>
 
-        <a href="shop/vintage-shirt.html" class="product-card">
-          <img src="images/shop-vintage-shirt-01.jpg" alt="Vintage Shirt" loading="lazy">
-          <p class="product-card__name">Vintage Shirt</p>
-          <p class="product-card__price">Price TBC</p>
-          <p class="product-card__note">Placeholder</p>
-        </a>
+        <div class="product-item">
+          <button type="button" class="product-card" data-product-toggle="vintage-shirt">
+            <img src="images/shop-vintage-shirt-01.jpg" alt="Vintage Shirt" loading="lazy">
+            <p class="product-card__name">Vintage Shirt</p>
+            <p class="product-card__price">Price TBC</p>
+            <p class="product-card__note">Placeholder</p>
+          </button>
+          <div class="product-detail" data-product-detail="vintage-shirt" hidden>
+            <img src="images/shop-vintage-shirt-01.jpg" alt="Vintage Shirt" class="product-detail__image" loading="lazy">
+            <p class="product-detail__price">Price TBC</p>
+            <p style="max-width: 44ch; color: var(--color-text-on-wash-muted);">
+              A vintage-inspired shirt, cut for a clean fit with retro detailing. Full description pending Gabriel's input.
+            </p>
+            <div class="product-detail__meta">
+              <div class="product-detail__meta-row">
+                <span class="product-detail__meta-label">Fit</span>
+                <span>Tailored</span>
+              </div>
+              <div class="product-detail__meta-row">
+                <span class="product-detail__meta-label">Style</span>
+                <span>Vintage-inspired</span>
+              </div>
+              <div class="product-detail__meta-row">
+                <span class="product-detail__meta-label">Type</span>
+                <span>Ready-to-wear</span>
+              </div>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-sm);">
+              <a href="https://wa.me/2348104826994?text=Hi%2C%20I%27m%20interested%20in%20the%20Vintage%20Shirt." class="btn btn--primary" target="_blank" rel="noopener">Order via WhatsApp</a>
+              <a href="booking.html" class="btn btn--outline-dark">Book a Fitting</a>
+            </div>
+          </div>
+        </div>
 
-        <a href="shop/trousers.html" class="product-card">
-          <img src="images/shop-trousers-01.jpg" alt="Tailored Trousers" loading="lazy">
-          <p class="product-card__name">Tailored Trousers</p>
-          <p class="product-card__price">Price TBC</p>
-          <p class="product-card__note">Placeholder</p>
-        </a>
+        <div class="product-item">
+          <button type="button" class="product-card" data-product-toggle="trousers">
+            <img src="images/shop-trousers-01.jpg" alt="Tailored Trousers" loading="lazy">
+            <p class="product-card__name">Tailored Trousers</p>
+            <p class="product-card__price">Price TBC</p>
+            <p class="product-card__note">Placeholder</p>
+          </button>
+          <div class="product-detail" data-product-detail="trousers" hidden>
+            <img src="images/shop-trousers-01.jpg" alt="Tailored Trousers" class="product-detail__image" loading="lazy">
+            <p class="product-detail__price">Price TBC</p>
+            <p style="max-width: 44ch; color: var(--color-text-on-wash-muted);">
+              Clean-lined tailored trousers, built to pair with senators, kaftans, or shirts. Full description pending Gabriel's input.
+            </p>
+            <div class="product-detail__meta">
+              <div class="product-detail__meta-row">
+                <span class="product-detail__meta-label">Fit</span>
+                <span>Tailored</span>
+              </div>
+              <div class="product-detail__meta-row">
+                <span class="product-detail__meta-label">Style</span>
+                <span>Classic</span>
+              </div>
+              <div class="product-detail__meta-row">
+                <span class="product-detail__meta-label">Type</span>
+                <span>Ready-to-wear</span>
+              </div>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-sm);">
+              <a href="https://wa.me/2348104826994?text=Hi%2C%20I%27m%20interested%20in%20the%20Tailored%20Trousers." class="btn btn--primary" target="_blank" rel="noopener">Order via WhatsApp</a>
+              <a href="booking.html" class="btn btn--outline-dark">Book a Fitting</a>
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>
   </section>
-
-  <!-- TAB PANEL: PRICES -->
   <section class="section section--light reveal" data-tab-panel="prices" hidden>
     <div class="container">
 

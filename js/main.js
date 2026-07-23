@@ -235,6 +235,34 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   })();
 
+  /* ---- FEATURE: Product Detail Toggle (accordion, one open at a time) ---- */
+  (function initProductToggle() {
+    try {
+      var toggleButtons = document.querySelectorAll('[data-product-toggle]');
+      var detailPanels = document.querySelectorAll('[data-product-detail]');
+      if (!toggleButtons.length || !detailPanels.length) return;
+
+      toggleButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var target = btn.getAttribute('data-product-toggle');
+          var targetPanel = document.querySelector('[data-product-detail="' + target + '"]');
+          if (!targetPanel) return;
+
+          var wasOpen = !targetPanel.hidden;
+
+          detailPanels.forEach(function (panel) { panel.hidden = true; });
+          targetPanel.hidden = wasOpen;
+
+          if (!wasOpen && targetPanel.scrollIntoView) {
+            targetPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        });
+      });
+    } catch (err) {
+      console.error('[product toggle]', err);
+    }
+  })();
+
 });
 
 /* ==========================================================================
