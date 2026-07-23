@@ -68,7 +68,6 @@
   /* ---- RADIUS ---- */
   --radius-none: 0;
   --radius-hairline: 1px;
-  --radius-card: 16px;
 
   /* ---- BORDERS ---- */
   --border-hairline-wash: 1px solid rgba(12, 22, 56, 0.18);
