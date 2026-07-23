@@ -161,6 +161,13 @@ p {
 }
 .btn--outline-dark:hover { border-color: var(--color-blue-600); color: var(--color-blue-600); }
 
+.btn--card {
+  background: #ffffff;
+  color: var(--color-cobalt-900);
+  border-color: #ffffff;
+}
+.btn--card:hover { background: var(--color-wash-light); }
+
 .btn-stack {
   display: flex;
   flex-direction: column;
