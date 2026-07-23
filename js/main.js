@@ -5,6 +5,7 @@
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', function () {
+  initThemeToggle();
 
   /* ---- FEATURE: Mobile Nav Toggle ---- */
   (function initNavToggle() {
@@ -293,3 +294,25 @@ window.GabyhartPayment = (function () {
 
   return { start: start, config: config };
 })();
+function initThemeToggle() {
+  var btn = document.querySelector('[data-theme-toggle]');
+  if (!btn) return;
+
+  function applyTheme(theme) {
+    if (theme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+    }
+    try { localStorage.setItem('gh-theme', theme); } catch (e) {}
+    btn.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+  }
+
+  var current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  btn.setAttribute('aria-pressed', current === 'dark' ? 'true' : 'false');
+
+  btn.addEventListener('click', function() {
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    applyTheme(isDark ? 'light' : 'dark');
+  });
+}
