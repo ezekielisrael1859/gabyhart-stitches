@@ -13,6 +13,23 @@
 <meta name="theme-color" content="#B5CBE6">
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/main.css">
+<style>
+  .fabric-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+  }
+  .fabric-pillar__name {
+    font-family: var(--font-display);
+    font-size: var(--fs-body-lg);
+    margin-bottom: var(--space-2xs);
+  }
+  .fabric-pillar__desc {
+    font-size: var(--fs-small);
+    color: var(--color-text-on-wash-muted);
+  }
+</style>
 </head>
 <body>
 
@@ -32,7 +49,6 @@
   <a href="about.html" class="site-nav__link is-active">About</a>
   <a href="gallery.html" class="site-nav__link">Gallery</a>
   <a href="shop.html" class="site-nav__link">Shop</a>
-  <a href="fabric.html" class="site-nav__link">Fabric &amp; Sourcing</a>
   <a href="booking.html" class="site-nav__link">Book a Fitting</a>
   <a href="training.html" class="site-nav__link">Training</a>
   <a href="contact.html" class="site-nav__link">Contact &amp; FAQ</a>
@@ -82,11 +98,43 @@
       <p style="max-width: 44ch; color: var(--color-text-on-wash-muted); margin-top: var(--space-md);">
         From measurement to final stitch, every order is handled with the same discipline &mdash; no shortcuts, no rushed seams.
       </p>
-      <a href="fabric.html" class="btn btn--outline" style="margin-top: var(--space-md);">Fabric &amp; Sourcing</a>
     </div>
   </section>
 
   <!-- TESTIMONIALS -->
+
+  <!-- FABRIC & SOURCING -->
+  <section class="section section--light reveal">
+    <div class="container">
+      <span class="eyebrow">Materials</span>
+      <h2 class="display-heading" style="font-size: var(--fs-h2); margin-bottom: var(--space-md);">Fabric &amp; Sourcing</h2>
+      <p style="max-width: 46ch; margin-bottom: var(--space-md);">
+        A good garment starts before the first cut. Fabric choice determines how a piece drapes, wears, and holds up over years, not just weeks &mdash; so it's treated as seriously as the stitching itself.
+      </p>
+      <p style="max-width: 46ch; color: var(--color-text-on-wash-muted); margin-bottom: var(--space-lg);">
+        Every fabric used at Gabyhart Stitches is selected for weight, weave, and finish appropriate to the piece &mdash; structured cottons for senators, breathable blends for everyday shirts, heavier denim for street wear built to last.
+      </p>
+
+      <div class="fabric-grid">
+        <div>
+          <p class="fabric-pillar__name">Weight &amp; Drape</p>
+          <p class="fabric-pillar__desc">Fabric selected to match how a piece is meant to move and sit.</p>
+        </div>
+        <div>
+          <p class="fabric-pillar__name">Durability</p>
+          <p class="fabric-pillar__desc">Built to hold shape and color through regular wear and washing.</p>
+        </div>
+        <div>
+          <p class="fabric-pillar__name">Finish</p>
+          <p class="fabric-pillar__desc">Clean, consistent texture with no shortcuts in weave quality.</p>
+        </div>
+        <div>
+          <p class="fabric-pillar__name">Fit for Purpose</p>
+          <p class="fabric-pillar__desc">The right material for the right garment &mdash; formal, casual, or street.</p>
+        </div>
+      </div>
+    </div>
+  </section>
   <section class="section section--light reveal">
     <div class="container">
       <span class="eyebrow">What Clients Say</span>
@@ -171,7 +219,6 @@
         <a href="about.html">About</a>
         <a href="gallery.html">Gallery</a>
         <a href="shop.html">Shop</a>
-        <a href="fabric.html">Fabric &amp; Sourcing</a>
         <a href="booking.html">Book a Fitting</a>
         <a href="training.html">Training</a>
         <a href="contact.html">Contact &amp; FAQ</a>
