@@ -23,21 +23,514 @@
 <meta name="theme-color" content="#B5CBE6">
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/main.css">
+<style>
+  /* ---- Home page-scoped styles ---- */
+  .home-hero {
+    position: relative;
+    padding: calc(var(--header-height) + var(--space-md)) var(--container-pad) 0;
+    background: var(--gradient-wash);
+    overflow: visible;
+  }
+  .home-hero__inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    align-items: start;
+    gap: var(--space-sm);
+  }
+  .home-hero__body { grid-column: 1; padding-top: var(--space-sm); }
+  .home-hero__eyebrow {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3xs);
+    font-family: var(--font-structural);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--color-blue-600);
+  }
+  .home-hero__headline {
+    font-family: var(--font-display);
+    font-size: clamp(1.9rem, 8vw, 3rem);
+    line-height: 1.05;
+    color: var(--color-text-on-wash);
+    margin: var(--space-2xs) 0 0;
+  }
+  .home-hero__headline em {
+    font-style: normal;
+    color: var(--color-sky-400);
+  }
+  .home-hero__rule {
+    width: 36px;
+    height: 3px;
+    background: var(--color-blue-600);
+    border: none;
+    margin: var(--space-xs) 0;
+  }
+  .home-hero__lede {
+    font-family: var(--font-structural);
+    font-size: 0.9rem;
+    color: var(--color-text-on-wash-muted);
+    max-width: 26ch;
+  }
+  .home-hero__actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    margin-top: var(--space-sm);
+  }
+  .btn-hero-primary,
+  .btn-hero-secondary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-xs) var(--space-sm);
+    font-family: var(--font-structural);
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: var(--radius-none);
+  }
+  .btn-hero-primary {
+    background: var(--color-navy-ink);
+    color: var(--color-text-on-dark);
+  }
+  .btn-hero-secondary {
+    background: transparent;
+    color: var(--color-text-on-wash);
+    border: var(--border-hairline-navy);
+  }
+  .home-hero__photo-wrap {
+    grid-column: 2;
+    position: relative;
+    margin: 0 calc(var(--container-pad) * -1) 0 0;
+    align-self: start;
+  }
+  .home-hero__photo {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 3 / 4.6;
+    object-fit: cover;
+  }
+  .home-hero__badge {
+    position: absolute;
+    right: var(--space-sm);
+    bottom: 90px;
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    background: var(--color-navy-ink);
+    color: var(--color-text-on-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: var(--font-structural);
+    font-size: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    line-height: 1.25;
+    border: 1px dashed rgba(244, 247, 252, 0.4);
+    padding: var(--space-2xs);
+  }
+  .home-hero__call {
+    position: absolute;
+    top: var(--space-sm);
+    right: var(--container-pad);
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--color-navy-ink);
+    color: var(--color-text-on-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .home-hero__call svg { width: 16px; height: 16px; }
+
+  .feature-strip {
+    background: var(--color-navy-ink);
+    color: var(--color-text-on-dark);
+    max-width: var(--container-max);
+    margin: -70px auto 0;
+    padding: var(--space-md) var(--space-xs) var(--space-sm);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md) var(--space-sm);
+    position: relative;
+    z-index: 3;
+  }
+  .feature-strip__item {
+    text-align: center;
+  }
+  .feature-strip__item svg {
+    width: 24px;
+    height: 24px;
+    color: var(--color-sky-400);
+    margin-bottom: var(--space-2xs);
+  }
+  .feature-strip__item h3 {
+    font-family: var(--font-structural);
+    font-size: var(--fs-small);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    margin: 0 0 var(--space-3xs);
+  }
+  .feature-strip__item p {
+    font-family: var(--font-structural);
+    font-size: var(--fs-label);
+    color: var(--color-text-on-dark-muted);
+    margin: 0;
+  }
+
+  .home-story {
+    padding: var(--space-2xl) var(--container-pad) 0;
+    max-width: var(--container-max);
+    margin: 0 auto;
+  }
+  .home-story__eyebrow {
+    font-family: var(--font-structural);
+    font-size: var(--fs-label);
+    font-weight: 700;
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--color-blue-600);
+  }
+  .home-story__heading {
+    font-family: var(--font-display);
+    font-size: var(--fs-h1);
+    color: var(--color-text-on-wash);
+    line-height: 1.1;
+    margin: var(--space-2xs) 0 0;
+  }
+  .home-story__heading em {
+    font-style: normal;
+    color: var(--color-sky-400);
+  }
+  .home-story__rule {
+    width: 48px;
+    height: 3px;
+    background: var(--color-blue-600);
+    border: none;
+    margin: var(--space-sm) 0;
+  }
+  .home-story__text {
+    font-family: var(--font-structural);
+    color: var(--color-text-on-wash-muted);
+    max-width: 40ch;
+  }
+  .home-story__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2xs);
+    font-family: var(--font-structural);
+    font-weight: 700;
+    font-size: var(--fs-small);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--color-blue-600);
+    text-decoration: none;
+    margin-top: var(--space-sm);
+  }
+  .home-story__link span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--color-sky-400);
+    color: var(--color-text-on-dark);
+  }
+  .home-story__media {
+    position: relative;
+    margin-top: var(--space-lg);
+    border-radius: var(--radius-none);
+    overflow: hidden;
+  }
+  .home-story__media img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+  }
+  .home-story__play {
+    position: absolute;
+    left: var(--space-sm);
+    bottom: var(--space-sm);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2xs);
+    background: rgba(6, 15, 61, 0.75);
+    color: var(--color-text-on-dark);
+    padding: var(--space-2xs) var(--space-sm);
+    font-family: var(--font-structural);
+    font-size: var(--fs-label);
+    font-weight: 700;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+  }
+  .home-story__play-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #fff;
+    color: var(--color-navy-ink);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .home-story__play-icon svg { width: 12px; height: 12px; }
+
+  .home-picks {
+    padding: var(--space-2xl) var(--container-pad) 0;
+    max-width: var(--container-max);
+    margin: 0 auto;
+  }
+  .home-picks__head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: var(--space-sm);
+  }
+  .home-picks__eyebrow {
+    display: block;
+    font-family: var(--font-structural);
+    font-size: var(--fs-label);
+    font-weight: 700;
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--color-blue-600);
+    margin-bottom: var(--space-3xs);
+  }
+  .home-picks__heading {
+    font-family: var(--font-display);
+    font-size: var(--fs-h2);
+    color: var(--color-text-on-wash);
+    margin: 0;
+  }
+  .home-picks__viewall {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2xs);
+    font-family: var(--font-structural);
+    font-weight: 700;
+    font-size: var(--fs-small);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--color-blue-600);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .home-picks__viewall span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--color-navy-ink);
+    color: var(--color-text-on-dark);
+  }
+  .home-picks__scroller {
+    display: flex;
+    gap: var(--space-sm);
+    overflow-x: auto;
+    padding-bottom: var(--space-sm);
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .home-picks__scroller::-webkit-scrollbar { display: none; }
+  .product-card {
+    position: relative;
+    flex: 0 0 62%;
+    scroll-snap-align: start;
+    border-radius: var(--radius-none);
+    overflow: hidden;
+    background: var(--color-navy-ink);
+    color: var(--color-text-on-dark);
+    text-decoration: none;
+    display: block;
+  }
+  .product-card__img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    display: block;
+    opacity: 0.85;
+  }
+  .product-card__fav {
+    position: absolute;
+    top: var(--space-2xs);
+    left: var(--space-2xs);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .product-card__fav svg { width: 14px; height: 14px; }
+  .product-card__badge {
+    position: absolute;
+    top: var(--space-2xs);
+    right: var(--space-2xs);
+    background: var(--color-sky-400);
+    color: var(--color-text-on-dark);
+    font-family: var(--font-structural);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 999px;
+  }
+  .product-card__info {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: var(--space-sm);
+    background: linear-gradient(to top, rgba(6,15,61,0.9), transparent);
+  }
+  .product-card__name {
+    font-family: var(--font-structural);
+    font-weight: 700;
+    font-size: var(--fs-small);
+    margin: 0 0 var(--space-3xs);
+  }
+  .product-card__price {
+    font-family: var(--font-structural);
+    font-size: var(--fs-small);
+    color: var(--color-sky-300);
+    margin: 0;
+  }
+
+  .home-trust {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md) var(--space-sm);
+    background: var(--color-wash-pale);
+    margin: var(--space-2xl) 0 0;
+    padding: var(--space-md) var(--container-pad);
+  }
+  .home-trust__item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2xs);
+  }
+  .home-trust__item svg {
+    width: 22px;
+    height: 22px;
+    color: var(--color-blue-600);
+    flex-shrink: 0;
+  }
+  .home-trust__item strong {
+    display: block;
+    font-family: var(--font-structural);
+    font-size: var(--fs-small);
+    color: var(--color-text-on-wash);
+  }
+  .home-trust__item span {
+    display: block;
+    font-family: var(--font-structural);
+    font-size: var(--fs-label);
+    color: var(--color-text-on-wash-muted);
+  }
+
+  .bottom-nav {
+    position: fixed;
+    left: var(--space-sm);
+    right: var(--space-sm);
+    bottom: var(--space-sm);
+    z-index: var(--z-mobile-nav);
+    background: var(--color-navy-ink);
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: var(--space-2xs) var(--space-2xs);
+    box-shadow: 0 12px 30px rgba(6,15,61,0.35);
+  }
+  .bottom-nav__link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    color: var(--color-text-on-dark-muted);
+    text-decoration: none;
+    font-family: var(--font-structural);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: var(--space-2xs);
+  }
+  .bottom-nav__link svg { width: 20px; height: 20px; }
+  .bottom-nav__link.is-active { color: var(--color-sky-400); }
+  .bottom-nav__link--main {
+    background: var(--color-sky-400);
+    color: var(--color-text-on-dark);
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    justify-content: center;
+    margin-top: -22px;
+    box-shadow: 0 6px 16px rgba(45,95,156,0.5);
+  }
+  .bottom-nav__link--main svg { width: 22px; height: 22px; }
+  .bottom-nav__link--main span { display: none; }
+
+  body { padding-bottom: 88px; }
+
+  @media (min-width: 900px) {
+    .home-hero__inner {
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: var(--space-2xl);
+    }
+    .home-hero__headline { font-size: clamp(3.5rem, 5vw, 5.5rem); }
+    .home-hero__photo-wrap { margin: 0; border-radius: var(--radius-none); }
+    .home-hero__actions { flex-direction: row; }
+    .feature-strip { grid-template-columns: repeat(4, 1fr); margin-top: -60px; }
+    .home-story { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2xl); align-items: center; }
+    .home-story__body { grid-column: 1; }
+    .home-story__media { grid-column: 2; margin-top: 0; }
+    .home-picks__scroller { display: grid; grid-template-columns: repeat(3, 1fr); overflow: visible; }
+    .product-card { flex: none; }
+    .home-trust { grid-template-columns: repeat(4, 1fr); }
+    .bottom-nav { display: none; }
+  }
+</style>
 </head>
 <body>
 
 <header class="site-header">
   <div class="container">
-    <a href="index.html" class="logo-mark">
-      <span class="logo-mark__wordmark">GabyHart Stitches</span>
-    </a>
     <button class="nav-toggle" aria-expanded="false" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
-    <button type="button" data-theme-toggle aria-pressed="false" aria-label="Toggle dark mode" class="theme-toggle">
-      <svg class="theme-toggle__icon theme-toggle__icon--sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-      <svg class="theme-toggle__icon theme-toggle__icon--moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-    </button>
+    <a href="index.html" class="logo-mark">
+      <img src="images/logo.png" alt="GabyHart Stitches" class="logo-mark__img">
+    </a>
+    <div class="site-header__actions">
+      <a href="tel:+2348104826994" class="site-header__call" aria-label="Call Gabyhart Stitches">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </a>
+      <button type="button" data-theme-toggle aria-pressed="false" aria-label="Toggle dark mode" class="theme-toggle">
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -53,92 +546,129 @@
 
 <main>
 
-  <!-- HERO -->
-  <section class="section section--dark hero" style="padding-top: var(--space-3xl); padding-bottom: var(--space-3xl);">
-    <div class="container">
-      <span class="eyebrow">Ekpoma, Edo State, Nigeria</span>
-      <h1 class="display-heading hero-heading">Pay attention<br>to details.</h1>
-      <p style="margin: var(--space-md) 0; max-width: 32ch; font-size: var(--fs-body-lg); color: var(--color-text-on-wash-muted);">
-        Quality menswear &mdash; senators, kaftans, agbada, native wear, corporate outfits, streetwear, and custom-made pieces.
-      </p>
-      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-sm); margin-top: var(--space-lg);">
-        <a href="booking.html" class="btn btn--primary">Book a Fitting</a>
-        <a href="gallery.html" class="btn btn--outline">View Gallery</a>
+  <!-- ===== HERO ===== -->
+  <section class="home-hero">
+    <div class="home-hero__inner">
+      <div class="home-hero__body">
+        <p class="home-hero__eyebrow">📍 Ekpoma, Edo State, Nigeria</p>
+        <h1 class="home-hero__headline">Pay attention<br>to <em>details.</em></h1>
+        <hr class="home-hero__rule">
+        <p class="home-hero__lede">Premium menswear carefully crafted with precision, passion and purpose.</p>
+        <div class="home-hero__actions">
+          <a href="booking.html" class="btn-hero-primary">Book a Fitting <span>&rarr;</span></a>
+          <a href="gallery.html" class="btn-hero-secondary">View Gallery <span>&#9634;</span></a>
+        </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ABOUT TEASER -->
-  <section class="section section--light reveal">
-    <div class="container">
-      <span class="eyebrow">Our Story</span>
-      <h2 class="display-heading" style="font-size: var(--fs-h2);">Crafted to capture your essence.</h2>
-      <p style="margin: var(--space-sm) 0 var(--space-md); max-width: 42ch; color: var(--color-text-on-wash-muted);">
-        Started in Port Harcourt in 2020, now rooted in Ekpoma, Edo State &mdash; Gabyhart Stitches has grown through quality craftsmanship, consistency, and attention to detail.
-      </p>
-      <a href="about.html" class="btn btn--outline-dark">Our Story</a>
-    </div>
-  </section>
-
-
-  <!-- HERO VIDEO MOMENT -->
-  <section class="section section--light reveal">
-    <div class="container">
-      <video src="videos/hero-bg.mp4" poster="images/hero-poster.jpg" autoplay muted loop playsinline preload="metadata" style="width: 100%; display: block;"></video>
-    </div>
-  </section>
-  <!-- GALLERY TEASER -->
-  <section class="section section--dark reveal">
-    <div class="container">
-      <span class="eyebrow">Recent Work</span>
-      <h2 class="display-heading" style="font-size: var(--fs-h2); margin-bottom: var(--space-md);">The Gallery</h2>
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-xs);">
-        <img src="images/gallery-weddings-01.jpg" alt="Wedding tailoring" loading="lazy">
-        <img src="images/gallery-corporate-01.jpg" alt="Corporate tailoring" loading="lazy">
-        <img src="images/gallery-everyday-01.jpg" alt="Everyday tailoring" loading="lazy">
-      </div>
-      <a href="gallery.html" class="btn btn--outline" style="margin-top: var(--space-md);">See Full Gallery</a>
-    </div>
-  </section>
-
-  <!-- SHOP TEASER -->
-  <section class="section section--light reveal">
-    <div class="container">
-      <span class="eyebrow">Ready-to-Wear</span>
-      <h2 class="display-heading" style="font-size: var(--fs-h2); margin-bottom: var(--space-md);">Shop the Collection</h2>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-sm);">
-        <a href="shop.html" style="display: block;">
-          <img src="images/shop-senator-navy.jpg" alt="Navy Senator, Monogrammed" loading="lazy">
-          <p style="margin-top: var(--space-2xs); font-family: var(--font-display); font-size: var(--fs-body-lg);">Navy Senator</p>
-          <p style="font-size: var(--fs-small); color: var(--color-text-on-wash-muted);">&#8358;55,000</p>
+      <div class="home-hero__photo-wrap">
+        <img src="images/hero-placeholder.jpg" alt="Model wearing a Gabyhart Stitches navy senator" class="home-hero__photo">
+        <a href="tel:+2348104826994" class="home-hero__call" aria-label="Call Gabyhart Stitches">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         </a>
-        <a href="shop.html" style="display: block;">
-          <img src="images/shop-denim-01.jpg" alt="Street Denim" loading="lazy">
-          <p style="margin-top: var(--space-2xs); font-family: var(--font-display); font-size: var(--fs-body-lg);">Street Denim</p>
-          <p style="font-size: var(--fs-small); color: var(--color-text-on-wash-muted);">&#8358;50,000</p>
-        </a>
+        <span class="home-hero__badge">Premium Quality · Perfect Fit</span>
       </div>
-      <a href="shop.html" class="btn btn--outline-dark" style="margin-top: var(--space-md);">Shop All</a>
     </div>
   </section>
 
-  <!-- PRICE LIST TEASER -->
-  <section class="section section--dark reveal">
-    <div class="container">
-      <span class="eyebrow">Investment</span>
-      <h2 class="display-heading" style="font-size: var(--fs-h2); margin-bottom: var(--space-sm);">Price List</h2>
-      <p style="max-width: 40ch; color: var(--color-text-on-wash-muted); margin-bottom: var(--space-md);">
-        Transparent pricing for every piece, ready-to-wear or made-to-order.
-      </p>
-      <a href="shop.html" class="btn btn--outline">View Full Price List</a>
+  <!-- ===== FEATURE STRIP ===== -->
+  <section class="feature-strip">
+    <div class="feature-strip__item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z"/></svg>
+      <h3>Premium Materials</h3>
+      <p>Finest fabrics &amp; accessories</p>
+    </div>
+    <div class="feature-strip__item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"/></svg>
+      <h3>Expert Craftsmanship</h3>
+      <p>Made with precision</p>
+    </div>
+    <div class="feature-strip__item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>
+      <h3>Perfect Fit</h3>
+      <p>Tailored just for you</p>
+    </div>
+    <div class="feature-strip__item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>
+      <h3>Satisfaction Guaranteed</h3>
+      <p>Quality you can see, confidence you feel</p>
     </div>
   </section>
 
-  <!-- FINAL CTA -->
-  <section class="section section--dark reveal" style="text-align: center;">
-    <div class="container">
-      <h2 class="display-heading" style="font-size: var(--fs-h1);">Ready when you are.</h2>
-      <a href="booking.html" class="btn btn--primary" style="margin-top: var(--space-md);">Book a Fitting</a>
+  <!-- ===== STORY ===== -->
+  <section class="home-story">
+    <div class="home-story__body">
+      <p class="home-story__eyebrow">Our Story</p>
+      <h2 class="home-story__heading">Crafted to capture your <em>essence.</em></h2>
+      <hr class="home-story__rule">
+      <p class="home-story__text">Started in Port Harcourt in 2020, now rooted in Ekpoma, Edo State — Gabyhart Stitches has grown through quality craftsmanship, consistency, and attention to detail.</p>
+      <a href="about.html" class="home-story__link">Read Our Story <span>&rarr;</span></a>
+    </div>
+    <div class="home-story__media">
+      <img src="images/craft-thumbnail.jpg" alt="Tailor hand-stitching fabric" loading="lazy">
+      <button type="button" class="home-story__play" data-video-trigger="images/craft-process.mp4">
+        <span class="home-story__play-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </span>
+        Watch Our Story
+      </button>
+    </div>
+  </section>
+
+  <!-- ===== POPULAR PICKS ===== -->
+  <section class="home-picks">
+    <div class="home-picks__head">
+      <div>
+        <span class="home-picks__eyebrow">Shop the Collection</span>
+        <h2 class="home-picks__heading">Popular Picks</h2>
+      </div>
+      <a href="shop.html" class="home-picks__viewall">View All <span>&rarr;</span></a>
+    </div>
+    <div class="home-picks__scroller">
+      <a href="shop.html" class="product-card">
+        <span class="product-card__fav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.6z"/></svg></span>
+        <span class="product-card__badge">Best Seller</span>
+        <img src="images/shop-senator-placeholder.jpg" alt="Navy Senator" class="product-card__img" loading="lazy">
+        <span class="product-card__info">
+          <span class="product-card__name">Navy Senator</span>
+          <span class="product-card__price">&#8358;55,000</span>
+        </span>
+      </a>
+      <a href="shop.html" class="product-card">
+        <span class="product-card__fav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.6z"/></svg></span>
+        <span class="product-card__badge">New Arrival</span>
+        <img src="images/shop-denim-placeholder.jpg" alt="Street Denim" class="product-card__img" loading="lazy">
+        <span class="product-card__info">
+          <span class="product-card__name">Street Denim</span>
+          <span class="product-card__price">&#8358;50,000</span>
+        </span>
+      </a>
+      <a href="shop.html" class="product-card">
+        <span class="product-card__fav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.6z"/></svg></span>
+        <img src="images/shop-urbanluxe-placeholder.jpg" alt="Urban Luxe" class="product-card__img" loading="lazy">
+        <span class="product-card__info">
+          <span class="product-card__name">Urban Luxe</span>
+          <span class="product-card__price">&#8358;45,000</span>
+        </span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== TRUST BAR ===== -->
+  <section class="home-trust">
+    <div class="home-trust__item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20M6 12v4M18 12v4M6 8v4M18 8v4"/></svg>
+      <span><strong>Custom Made</strong><span>Just for you</span></span>
+    </div>
+    <div class="home-trust__item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="7" width="15" height="10"/><path d="M16 10h4l3 3v4h-7z"/><circle cx="5.5" cy="18.5" r="1.5"/><circle cx="18.5" cy="18.5" r="1.5"/></svg>
+      <span><strong>Nationwide</strong><span>Delivery</span></span>
+    </div>
+    <div class="home-trust__item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="1"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      <span><strong>Secure</strong><span>Payment</span></span>
+    </div>
+    <div class="home-trust__item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1v-4h3v2zM3 19a2 2 0 0 0 2 2h1v-4H3v2z"/></svg>
+      <span><strong>24/7</strong><span>Support</span></span>
     </div>
   </section>
 
@@ -146,18 +676,16 @@
 
 <footer class="site-footer">
   <div class="container">
-    <div class="site-footer__top">
-      <span class="credential-badge">Certified Obioma</span>
-      <nav class="site-footer__nav">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="shop.html">Shop</a>
-        <a href="booking.html">Book a Fitting</a>
-        <a href="training.html">Fashion Academy</a>
-        <a href="contact.html">Contact &amp; FAQ</a>
-      </nav>
-    </div>
+    <span class="credential-badge">Certified Obioma</span>
+    <nav class="site-footer__nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="shop.html">Shop</a>
+      <a href="booking.html">Book a Fitting</a>
+      <a href="training.html">Fashion Academy</a>
+      <a href="contact.html">Contact &amp; FAQ</a>
+    </nav>
     <div class="site-footer__bottom">
       <span>&copy; 2026 Gabyhart Stitches</span>
       <span>Ekpoma, Edo State, Nigeria</span>
@@ -168,6 +696,29 @@
 <a href="https://wa.me/2348104826994" class="whatsapp-float" aria-label="Chat on WhatsApp" target="_blank" rel="noopener">
   <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.9C21.96 6.45 17.5 2 12.04 2zm5.8 14.08c-.24.68-1.19 1.24-1.96 1.4-.52.11-1.2.2-3.49-.75-2.93-1.21-4.82-4.19-4.97-4.38-.14-.2-1.19-1.58-1.19-3.01s.74-2.13 1-2.42c.26-.3.57-.37.76-.37.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.57.81 1.98.88 2.12.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.52 1.89 1.05.93 1.93 1.22 2.21 1.36.28.14.44.12.6-.07.16-.19.68-.79.86-1.06.18-.28.36-.23.6-.14.24.09 1.55.73 1.82.86.27.14.44.2.51.31.07.12.07.66-.17 1.34z"/></svg>
 </a>
+
+<nav class="bottom-nav">
+  <a href="index.html" class="bottom-nav__link is-active">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l9-9 9 9"/><path d="M5 10v10h14V10"/></svg>
+    Home
+  </a>
+  <a href="about.html" class="bottom-nav__link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>
+    About
+  </a>
+  <a href="booking.html" class="bottom-nav__link bottom-nav__link--main">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M4 12a8 8 0 0 1 8-8M20 12a8 8 0 0 1-8 8"/></svg>
+    <span>Book</span>
+  </a>
+  <a href="shop.html" class="bottom-nav__link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2l1.5 5h9L18 2"/><path d="M3 7h18l-1.5 13h-15z"/></svg>
+    Shop
+  </a>
+  <a href="contact.html" class="bottom-nav__link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg>
+    More
+  </a>
+</nav>
 
 <script src="js/main.js"></script>
 </body>
