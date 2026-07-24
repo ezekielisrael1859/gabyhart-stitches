@@ -27,7 +27,7 @@
   /* ---- Home page-scoped styles ---- */
   .home-hero {
     position: relative;
-    padding: calc(var(--header-height) + var(--space-md)) var(--container-pad) 0;
+    padding: calc(var(--header-height) + var(--space-md)) var(--container-pad) var(--space-2xl);
     background: var(--gradient-wash);
     overflow: visible;
   }
@@ -144,13 +144,14 @@
     background: var(--color-navy-ink);
     color: var(--color-text-on-dark);
     max-width: var(--container-max);
-    margin: -70px auto 0;
+    margin: -70px var(--container-pad) 0;
     padding: var(--space-md) var(--space-xs) var(--space-sm);
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--space-md) var(--space-sm);
     position: relative;
     z-index: 3;
+    border-radius: 16px;
   }
   .feature-strip__item {
     text-align: center;
