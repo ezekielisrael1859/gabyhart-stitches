@@ -86,7 +86,7 @@
   /* ---- LAYOUT ---- */
   --container-max: 1200px;
   --container-pad: 1.25rem;
-  --header-height: 72px;
+  --header-height: 108px;
 
   /* ---- Z-INDEX ---- */
   --z-header: 100;
