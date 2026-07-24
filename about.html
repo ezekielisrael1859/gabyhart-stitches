@@ -280,6 +280,128 @@
     .why-exist__grid { grid-template-columns: repeat(4, 1fr); }
     .studio-grid { grid-template-columns: repeat(4, 1fr); }
   }
+  .craft-section {
+    background: var(--color-navy-ink);
+    color: var(--color-text-on-dark);
+    padding: var(--space-xl) var(--container-pad);
+  }
+  .craft-section__inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    display: grid;
+    gap: var(--space-lg);
+  }
+  .craft-section__media {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+  }
+  .craft-section__eyebrow {
+    display: block;
+    font-family: var(--font-structural);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--color-sky-400);
+    margin-bottom: var(--space-2xs);
+  }
+  .craft-section__heading {
+    font-family: var(--font-display);
+    font-size: var(--fs-h2);
+    line-height: 1.15;
+    margin: 0 0 var(--space-sm);
+  }
+  .craft-section__heading em {
+    font-style: normal;
+    color: var(--color-sky-400);
+  }
+  .craft-section__desc {
+    color: var(--color-text-on-dark-muted);
+    max-width: 44ch;
+    margin-bottom: var(--space-md);
+  }
+  .craft-section__checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xs) var(--space-sm);
+  }
+  .craft-section__checklist li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2xs);
+    font-size: 0.85rem;
+  }
+  .craft-section__checklist svg {
+    width: 16px;
+    height: 16px;
+    color: var(--color-sky-400);
+    flex-shrink: 0;
+  }
+  .materials-section {
+    padding: var(--space-xl) var(--container-pad);
+    max-width: var(--container-max);
+    margin: 0 auto;
+  }
+  .materials-section__eyebrow {
+    display: block;
+    font-family: var(--font-structural);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--color-blue-600);
+    margin-bottom: var(--space-2xs);
+  }
+  .materials-section__heading {
+    font-family: var(--font-display);
+    font-size: var(--fs-h2);
+    color: var(--color-text-on-wash);
+    margin: 0 0 var(--space-md);
+  }
+  .materials-section__heading em {
+    font-style: normal;
+    color: var(--color-sky-400);
+  }
+  .materials-section__intro {
+    max-width: 46ch;
+    color: var(--color-text-on-wash-muted);
+    margin-bottom: var(--space-lg);
+  }
+  .material-card {
+    background: var(--color-wash-light);
+    border: var(--border-hairline-wash);
+    border-radius: 10px;
+    padding: var(--space-sm);
+    text-align: center;
+  }
+  .material-card svg {
+    width: 26px;
+    height: 26px;
+    color: var(--color-blue-600);
+    margin-bottom: var(--space-2xs);
+  }
+  .material-card__name {
+    font-family: var(--font-structural);
+    font-weight: 700;
+    font-size: var(--fs-small);
+    margin: 0 0 var(--space-3xs);
+  }
+  .material-card__desc {
+    font-size: 0.75rem;
+    color: var(--color-text-on-wash-muted);
+    margin: 0;
+  }
+  @media (min-width: 900px) {
+    .craft-section__inner { grid-template-columns: 1fr 1fr; align-items: center; }
+    .materials-section .fabric-grid,
+    .materials-section__cards { grid-template-columns: repeat(4, 1fr); }
+  }
 </style>
 </head>
 <body>
@@ -417,49 +539,50 @@
     </div>
   </section>
 
-  <!-- CRAFT / PROCESS STRIP -->
-  <section class="section section--dark has-texture reveal">
-    <div class="container">
-      <span class="eyebrow">The Craft</span>
-      <h2 class="display-heading" style="font-size: var(--fs-h2); margin-bottom: var(--space-md);">Built by hand, checked by eye.</h2>
-      <video src="videos/craft-process.mp4" poster="images/craft-thumbnail.jpg" autoplay muted loop playsinline preload="metadata" style="width: 100%; display: block;"><img src="images/craft-thumbnail.jpg" alt="Tailoring process at Gabyhart Stitches" loading="lazy"></video>
-      <p style="max-width: 44ch; color: var(--color-text-on-wash-muted); margin-top: var(--space-md);">
-        From measurement to final stitch, every order is handled with the same discipline &mdash; no shortcuts, no rushed seams.
-      </p>
+  <section class="craft-section">
+    <div class="craft-section__inner">
+      <video src="videos/craft-process.mp4" poster="images/craft-thumbnail.jpg" autoplay muted loop playsinline preload="metadata" class="craft-section__media"><img src="images/craft-thumbnail.jpg" alt="Tailoring process at Gabyhart Stitches" loading="lazy" class="craft-section__media"></video>
+      <div>
+        <span class="craft-section__eyebrow">The Craft</span>
+        <h2 class="craft-section__heading">Pay Attention<br>to <em>Details.</em></h2>
+        <p class="craft-section__desc">From measurement to final stitch, every order is handled with the same discipline &mdash; no shortcuts, no rushed seams.</p>
+        <ul class="craft-section__checklist">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg> Hand Finished</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg> Quality Inspection</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg> Precision Cutting</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg> Final Pressing</li>
+        </ul>
+      </div>
     </div>
   </section>
 
   <!-- TESTIMONIALS -->
 
   <!-- FABRIC & SOURCING -->
-  <section class="section section--light reveal">
-    <div class="container">
-      <span class="eyebrow">Materials</span>
-      <h2 class="display-heading" style="font-size: var(--fs-h2); margin-bottom: var(--space-md);">Fabric &amp; Sourcing</h2>
-      <p style="max-width: 46ch; margin-bottom: var(--space-md);">
-        A good garment starts before the first cut. Fabric choice determines how a piece drapes, wears, and holds up over years, not just weeks &mdash; so it's treated as seriously as the stitching itself.
-      </p>
-      <p style="max-width: 46ch; color: var(--color-text-on-wash-muted); margin-bottom: var(--space-lg);">
-        Every fabric used at Gabyhart Stitches is selected for weight, weave, and finish appropriate to the piece &mdash; structured cottons for senators, breathable blends for everyday shirts, heavier denim for street wear built to last.
-      </p>
-
-      <div class="fabric-grid">
-        <div>
-          <p class="fabric-pillar__name">Weight &amp; Drape</p>
-          <p class="fabric-pillar__desc">Fabric selected to match how a piece is meant to move and sit.</p>
-        </div>
-        <div>
-          <p class="fabric-pillar__name">Durability</p>
-          <p class="fabric-pillar__desc">Built to hold shape and color through regular wear and washing.</p>
-        </div>
-        <div>
-          <p class="fabric-pillar__name">Finish</p>
-          <p class="fabric-pillar__desc">Clean, consistent texture with no shortcuts in weave quality.</p>
-        </div>
-        <div>
-          <p class="fabric-pillar__name">Fit for Purpose</p>
-          <p class="fabric-pillar__desc">The right material for the right garment &mdash; formal, casual, or street.</p>
-        </div>
+  <section class="materials-section">
+    <span class="materials-section__eyebrow">Materials</span>
+    <h2 class="materials-section__heading">Chosen with <em>Intention.</em></h2>
+    <p class="materials-section__intro">A good garment starts before the first cut. Fabric choice determines how a piece drapes, wears, and holds up over years, not just weeks &mdash; so it's treated as seriously as the stitching itself. Every fabric used at Gabyhart Stitches is selected for weight, weave, and finish appropriate to the piece.</p>
+    <div class="fabric-grid">
+      <div class="material-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v18M18 3v18M3 9h18M3 15h18"/></svg>
+        <p class="material-card__name">Weight &amp; Drape</p>
+        <p class="material-card__desc">Fabric selected to match how a piece is meant to move and sit.</p>
+      </div>
+      <div class="material-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>
+        <p class="material-card__name">Durability</p>
+        <p class="material-card__desc">Built to hold shape and color through regular wear and washing.</p>
+      </div>
+      <div class="material-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 9h16M9 4v16"/></svg>
+        <p class="material-card__name">Finish</p>
+        <p class="material-card__desc">Clean, consistent texture with no shortcuts in weave quality.</p>
+      </div>
+      <div class="material-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.6z"/></svg>
+        <p class="material-card__name">Fit for Purpose</p>
+        <p class="material-card__desc">The right material for the right garment &mdash; formal, casual, or street.</p>
       </div>
     </div>
   </section>
