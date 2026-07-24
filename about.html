@@ -39,6 +39,121 @@
     font-size: var(--fs-small);
     color: var(--color-text-on-wash-muted);
   }
+  .about-hero {
+    position: relative;
+    padding: calc(var(--header-height) + var(--space-md)) var(--container-pad) var(--space-xl);
+    background: var(--gradient-wash);
+  }
+  .about-hero__inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    align-items: start;
+    gap: var(--space-sm);
+  }
+  .about-hero__eyebrow {
+    font-family: var(--font-structural);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--color-blue-600);
+  }
+  .about-hero__headline {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 9vw, 3.2rem);
+    line-height: 1.05;
+    color: var(--color-text-on-wash);
+    margin: var(--space-2xs) 0 0;
+  }
+  .about-hero__headline em {
+    font-style: normal;
+    color: var(--color-sky-400);
+  }
+  .about-hero__rule {
+    width: 36px;
+    height: 3px;
+    background: var(--color-blue-600);
+    border: none;
+    margin: var(--space-xs) 0;
+  }
+  .about-hero__lede {
+    font-family: var(--font-structural);
+    font-size: 0.9rem;
+    color: var(--color-text-on-wash-muted);
+    max-width: 30ch;
+  }
+  .about-hero__photo {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 3 / 3.6;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+  .about-journey {
+    padding: var(--space-xl) 0 var(--space-lg);
+    background: var(--color-wash-light);
+  }
+  .about-journey__inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-pad);
+  }
+  .about-journey__eyebrow {
+    font-family: var(--font-structural);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--color-blue-600);
+    margin-bottom: var(--space-sm);
+    display: block;
+  }
+  .about-journey__track {
+    display: flex;
+    gap: var(--space-md);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: var(--space-sm);
+  }
+  .about-journey__track::-webkit-scrollbar { display: none; }
+  .about-journey__step {
+    flex: 0 0 68%;
+    scroll-snap-align: start;
+    text-align: center;
+  }
+  .about-journey__icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--color-wash-pale);
+    color: var(--color-blue-600);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--space-2xs);
+  }
+  .about-journey__icon svg { width: 20px; height: 20px; }
+  .about-journey__year {
+    font-family: var(--font-display);
+    font-size: var(--fs-h3);
+    color: var(--color-text-on-wash);
+  }
+  .about-journey__year.is-current { color: var(--color-blue-600); }
+  .about-journey__desc {
+    font-size: var(--fs-small);
+    color: var(--color-text-on-wash-muted);
+    max-width: 22ch;
+    margin: var(--space-3xs) auto 0;
+  }
+  @media (min-width: 900px) {
+    .about-hero__inner { grid-template-columns: 1fr 1fr; }
+    .about-journey__track { display: grid; grid-template-columns: repeat(4, 1fr); overflow: visible; }
+    .about-journey__step { flex: none; }
+  }
 </style>
 </head>
 <body>
@@ -76,34 +191,46 @@
 <main>
 
   <!-- PAGE HEADER -->
-  <section class="section section--dark" style="padding-top: var(--space-3xl); padding-bottom: var(--space-lg);">
-    <div class="container">
-      <span class="eyebrow">About Us</span>
-      <h1 class="display-heading hero-heading">Our Story</h1>
+  <section class="about-hero">
+    <div class="about-hero__inner">
+      <div>
+        <p class="about-hero__eyebrow">About Gabyhart</p>
+        <h1 class="about-hero__headline">Crafted with <em>Purpose.</em></h1>
+        <hr class="about-hero__rule">
+        <p class="about-hero__lede">Every stitch tells a story of discipline, craftsmanship, and attention to detail.</p>
+        <span class="credential-badge" style="margin-top: var(--space-md); display: inline-flex;">Certified Obioma</span>
+      </div>
+      <img src="images/founder-portrait.jpg" alt="Gabriel Osaretin Aigbedion, founder of Gabyhart Stitches" class="about-hero__photo" loading="lazy">
     </div>
   </section>
 
-  <!-- OUR STORY -->
-  <section class="section section--light reveal">
-    <div class="container">
-      <img src="images/founder-portrait.jpg" alt="Gabriel Osaretin Aigbedion, founder of Gabyhart Stitches" loading="lazy" style="margin-bottom: var(--space-lg); max-width: 320px;">
-
-      <span class="credential-badge" style="margin-bottom: var(--space-lg); display: inline-flex;">Certified Obioma</span>
-
-      <p style="max-width: 46ch; margin-bottom: var(--space-md);">
-        GABYHART STITCHES started in Port Harcourt in 2020 as Hart Stitches. In 2021, the brand moved to Ekpoma, Edo State, where it continued to grow through quality craftsmanship, consistency, and attention to detail.
-      </p>
-
-      <p style="max-width: 46ch; margin-bottom: var(--space-md);">
-        In 2024, Hart Stitches was rebranded as GABYHART STITCHES, reflecting the brand's growth while staying true to its roots.
-      </p>
-
-      <p style="max-width: 46ch; margin-bottom: var(--space-lg);">
+  <section class="about-journey">
+    <div class="about-journey__inner">
+      <span class="about-journey__eyebrow">Our Journey</span>
+      <div class="about-journey__track">
+        <div class="about-journey__step">
+          <span class="about-journey__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></span>
+          <p class="about-journey__year">2020</p>
+          <p class="about-journey__desc">Started in Port Harcourt as Hart Stitches.</p>
+        </div>
+        <div class="about-journey__step">
+          <span class="about-journey__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <p class="about-journey__year">2021</p>
+          <p class="about-journey__desc">Moved to Ekpoma, Edo State.</p>
+        </div>
+        <div class="about-journey__step">
+          <span class="about-journey__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z"/></svg></span>
+          <p class="about-journey__year">2024</p>
+          <p class="about-journey__desc">Rebranded to Gabyhart Stitches.</p>
+        </div>
+        <div class="about-journey__step">
+          <span class="about-journey__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 6l-9.5 9.5-5-5L1 18"/><path d="M17 6h6v6"/></svg></span>
+          <p class="about-journey__year is-current">Today</p>
+          <p class="about-journey__desc">Creating premium menswear across Nigeria.</p>
+        </div>
+      </div>
+      <p style="max-width: 52ch; margin-top: var(--space-lg); color: var(--color-text-on-wash-muted);">
         Today, GABYHART STITCHES creates quality menswear, including kaftans, native wear, corporate outfits, streetwear, and custom-made pieces. Every garment is made with care, precision, and a commitment to excellence.
-      </p>
-
-      <p class="display-heading" style="max-width: 40ch; font-size: var(--fs-h3); color: var(--color-blue-600);">
-        Crafted to capture your essence.
       </p>
     </div>
   </section>
