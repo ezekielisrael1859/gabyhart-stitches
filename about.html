@@ -154,6 +154,132 @@
     .about-journey__track { display: grid; grid-template-columns: repeat(4, 1fr); overflow: visible; }
     .about-journey__step { flex: none; }
   }
+  .why-exist {
+    background: var(--color-navy-ink);
+    color: var(--color-text-on-dark);
+    max-width: var(--container-max);
+    margin: 0 var(--container-pad);
+    padding: var(--space-lg) var(--space-sm);
+    border-radius: 16px;
+  }
+  .why-exist__eyebrow {
+    display: block;
+    text-align: center;
+    font-family: var(--font-structural);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--color-sky-400);
+    margin-bottom: var(--space-2xs);
+  }
+  .why-exist__heading {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 6vw, 2.2rem);
+    text-align: center;
+    line-height: 1.2;
+    margin-bottom: var(--space-lg);
+  }
+  .why-exist__heading em {
+    font-style: normal;
+    color: var(--color-sky-400);
+  }
+  .why-exist__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md) var(--space-sm);
+  }
+  .why-exist__item {
+    text-align: center;
+  }
+  .why-exist__item svg {
+    width: 22px;
+    height: 22px;
+    color: var(--color-sky-400);
+    margin-bottom: var(--space-2xs);
+  }
+  .why-exist__item h3 {
+    font-family: var(--font-structural);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    margin: 0 0 var(--space-3xs);
+  }
+  .why-exist__item p {
+    font-size: 0.7rem;
+    color: var(--color-text-on-dark-muted);
+    margin: 0;
+  }
+  .studio-section {
+    padding: var(--space-2xl) var(--container-pad) 0;
+    max-width: var(--container-max);
+    margin: 0 auto;
+  }
+  .studio-section__head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-sm);
+  }
+  .studio-section__eyebrow {
+    display: block;
+    font-family: var(--font-structural);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--color-blue-600);
+    margin-bottom: var(--space-3xs);
+  }
+  .studio-section__heading {
+    font-family: var(--font-display);
+    font-size: var(--fs-h2);
+    color: var(--color-text-on-wash);
+    margin: 0;
+  }
+  .studio-section__heading em {
+    font-style: normal;
+    color: var(--color-sky-400);
+  }
+  .studio-section__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2xs);
+    font-family: var(--font-structural);
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--color-text-on-wash);
+    text-decoration: none;
+    border: var(--border-hairline-navy);
+    padding: var(--space-2xs) var(--space-sm);
+    white-space: nowrap;
+  }
+  .studio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm);
+  }
+  .studio-grid__item img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+    background: var(--color-wash-pale);
+    border-radius: 8px;
+  }
+  .studio-grid__item p {
+    font-size: var(--fs-small);
+    color: var(--color-text-on-wash-muted);
+    margin: var(--space-2xs) 0 0;
+  }
+  @media (min-width: 900px) {
+    .why-exist__grid { grid-template-columns: repeat(4, 1fr); }
+    .studio-grid { grid-template-columns: repeat(4, 1fr); }
+  }
 </style>
 </head>
 <body>
@@ -232,6 +358,62 @@
       <p style="max-width: 52ch; margin-top: var(--space-lg); color: var(--color-text-on-wash-muted);">
         Today, GABYHART STITCHES creates quality menswear, including kaftans, native wear, corporate outfits, streetwear, and custom-made pieces. Every garment is made with care, precision, and a commitment to excellence.
       </p>
+    </div>
+  </section>
+  <section style="padding: var(--space-xl) 0 0;">
+    <div class="why-exist">
+      <span class="why-exist__eyebrow">Why We Exist</span>
+      <h2 class="why-exist__heading">We don't just sew clothes.<br>We build <em>confidence.</em></h2>
+      <div class="why-exist__grid">
+        <div class="why-exist__item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z"/></svg>
+          <h3>Attention to Detail</h3>
+          <p>Every stitch matters.</p>
+        </div>
+        <div class="why-exist__item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/></svg>
+          <h3>Premium Fabrics</h3>
+          <p>Only materials worth wearing.</p>
+        </div>
+        <div class="why-exist__item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
+          <h3>Perfect Fit</h3>
+          <p>Tailored around the individual.</p>
+        </div>
+        <div class="why-exist__item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          <h3>Timeless Style</h3>
+          <p>Designed beyond trends.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="studio-section">
+    <div class="studio-section__head">
+      <div>
+        <span class="studio-section__eyebrow">The Studio</span>
+        <h2 class="studio-section__heading">Where Every Piece <em>Begins.</em></h2>
+      </div>
+      <a href="gallery.html" class="studio-section__link">View Gallery</a>
+    </div>
+    <div class="studio-grid">
+      <div class="studio-grid__item">
+        <img src="images/studio-machines-placeholder.jpg" alt="Our Machines" loading="lazy">
+        <p>Our Machines</p>
+      </div>
+      <div class="studio-grid__item">
+        <img src="images/studio-workshop-placeholder.jpg" alt="Our Workshop" loading="lazy">
+        <p>Our Workshop</p>
+      </div>
+      <div class="studio-grid__item">
+        <img src="images/studio-materials-placeholder.jpg" alt="Our Materials" loading="lazy">
+        <p>Our Materials</p>
+      </div>
+      <div class="studio-grid__item">
+        <img src="images/studio-process-placeholder.jpg" alt="Our Process" loading="lazy">
+        <p>Our Process</p>
+      </div>
     </div>
   </section>
 
