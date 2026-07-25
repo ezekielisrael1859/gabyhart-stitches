@@ -208,6 +208,40 @@
     .gallery-cta__inner { grid-template-columns: 1fr 1fr; text-align: left; }
     .gallery-grid { grid-template-columns: repeat(3, 1fr); }
   }
+  .gallery-trust {
+    background: var(--color-navy-ink);
+    color: var(--color-text-on-dark);
+    max-width: var(--container-max);
+    margin: var(--space-xl) var(--container-pad);
+    padding: var(--space-lg) var(--space-sm);
+    border-radius: 16px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md) var(--space-sm);
+    text-align: center;
+  }
+  .gallery-trust__item svg {
+    width: 22px;
+    height: 22px;
+    color: var(--color-sky-400);
+    margin-bottom: var(--space-2xs);
+  }
+  .gallery-trust__item h3 {
+    font-family: var(--font-structural);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    margin: 0 0 var(--space-3xs);
+  }
+  .gallery-trust__item p {
+    font-size: 0.7rem;
+    color: var(--color-text-on-dark-muted);
+    margin: 0;
+  }
+  @media (min-width: 900px) {
+    .gallery-trust { grid-template-columns: repeat(4, 1fr); }
+  }
 </style>
 </head>
 <body>
@@ -278,6 +312,28 @@
 
     </div>
   </section>
+  <div class="gallery-trust">
+    <div class="gallery-trust__item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <h3>Real Clients</h3>
+      <p>Every photo is an actual fitting, not a stock image.</p>
+    </div>
+    <div class="gallery-trust__item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+      <h3>Every Style</h3>
+      <p>Weddings, corporate wear, and everyday pieces.</p>
+    </div>
+    <div class="gallery-trust__item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+      <h3>Tap to Enlarge</h3>
+      <p>See every detail up close in full view.</p>
+    </div>
+    <div class="gallery-trust__item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="9"/></svg>
+      <h3>Updated Often</h3>
+      <p>New work added as fresh pieces are completed.</p>
+    </div>
+  </div>
 
   <!-- FINAL CTA -->
   <section class="gallery-cta">
