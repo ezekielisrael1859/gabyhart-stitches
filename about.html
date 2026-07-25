@@ -113,15 +113,16 @@
   }
   .about-journey__track {
     display: flex;
-    gap: var(--space-md);
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
+    flex-direction: column;
+    gap: var(--space-lg);
+    overflow-x: visible;
+    
     -webkit-overflow-scrolling: touch;
     padding-bottom: var(--space-sm);
   }
   .about-journey__track::-webkit-scrollbar { display: none; }
   .about-journey__step {
-    flex: 0 0 68%;
+    flex: none;
     scroll-snap-align: start;
     text-align: center;
   }
