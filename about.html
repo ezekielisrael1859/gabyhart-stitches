@@ -402,6 +402,108 @@
     .materials-section .fabric-grid,
     .materials-section__cards { grid-template-columns: repeat(4, 1fr); }
   }
+  .stats-bar {
+    background: var(--color-navy-ink);
+    color: var(--color-text-on-dark);
+    max-width: var(--container-max);
+    margin: var(--space-xl) var(--container-pad);
+    padding: var(--space-lg) var(--space-sm);
+    border-radius: 16px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+    text-align: center;
+  }
+  .stats-bar__num {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+    color: var(--color-sky-400);
+    margin: 0;
+  }
+  .stats-bar__label {
+    font-size: 0.7rem;
+    color: var(--color-text-on-dark-muted);
+    margin: var(--space-3xs) 0 0;
+  }
+  .testimonials-section {
+    padding: 0 0 var(--space-xl);
+    max-width: var(--container-max);
+    margin: 0 auto;
+  }
+  .testimonials-section__head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 0 var(--container-pad);
+    margin-bottom: var(--space-sm);
+  }
+  .testimonials-section__eyebrow {
+    display: block;
+    font-family: var(--font-structural);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--color-blue-600);
+    margin-bottom: var(--space-3xs);
+  }
+  .testimonials-section__heading {
+    font-family: var(--font-display);
+    font-size: var(--fs-h2);
+    color: var(--color-text-on-wash);
+    margin: 0;
+  }
+  .testimonials-section__all {
+    font-family: var(--font-structural);
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--color-blue-600);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .testimonials-track {
+    display: flex;
+    gap: var(--space-sm);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 var(--container-pad) var(--space-sm);
+  }
+  .testimonials-track::-webkit-scrollbar { display: none; }
+  .testimonial-card {
+    flex: 0 0 78%;
+    scroll-snap-align: start;
+    background: var(--color-wash-light);
+    border: var(--border-hairline-wash);
+    border-radius: 10px;
+    padding: var(--space-md);
+  }
+  .testimonial-card__stars {
+    color: var(--color-sky-400);
+    font-size: 0.8rem;
+    margin-bottom: var(--space-2xs);
+  }
+  .testimonial-card__quote {
+    font-size: 0.85rem;
+    color: var(--color-text-on-wash-muted);
+    margin: 0 0 var(--space-sm);
+  }
+  .testimonial-card__name {
+    font-family: var(--font-structural);
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-blue-600);
+    margin: 0;
+  }
+  @media (min-width: 900px) {
+    .stats-bar { grid-template-columns: repeat(4, 1fr); }
+    .testimonials-track { display: grid; grid-template-columns: repeat(4, 1fr); overflow: visible; }
+    .testimonial-card { flex: none; }
+  }
 </style>
 </head>
 <body>
@@ -586,67 +688,62 @@
       </div>
     </div>
   </section>
-  <section class="section section--light reveal">
-    <div class="container">
-      <span class="eyebrow">What Clients Say</span>
-      <h2 class="display-heading" style="font-size: var(--fs-h2); margin-bottom: var(--space-lg);">Testimonials</h2>
+  <div class="stats-bar">
+    <div>
+      <p class="stats-bar__num">300+</p>
+      <p class="stats-bar__label">Happy Clients</p>
+    </div>
+    <div>
+      <p class="stats-bar__num">5+</p>
+      <p class="stats-bar__label">Years of Craftsmanship</p>
+    </div>
+    <div>
+      <p class="stats-bar__num">300+</p>
+      <p class="stats-bar__label">Custom Pieces</p>
+    </div>
+    <div>
+      <p class="stats-bar__num">100%</p>
+      <p class="stats-bar__label">Made to Measure</p>
+    </div>
+  </div>
 
-      <div style="display: flex; flex-direction: column; gap: var(--space-lg);">
-
-        <div style="border-top: var(--border-hairline-wash); padding-top: var(--space-md);">
-          <p style="font-family: var(--font-display); font-size: var(--fs-body-lg); margin-bottom: var(--space-sm);">
-            "Placeholder quote &mdash; pending Gabriel's real testimonial."
-          </p>
-          <p style="font-size: var(--fs-small); font-weight: 700; text-transform: uppercase; letter-spacing: var(--tracking-wide); color: var(--color-blue-600);">
-            Pastor Dr Nehemiah Aluya
-          </p>
-        </div>
-
-        <div style="border-top: var(--border-hairline-wash); padding-top: var(--space-md);">
-          <p style="font-family: var(--font-display); font-size: var(--fs-body-lg); margin-bottom: var(--space-sm);">
-            "Placeholder quote &mdash; pending Gabriel's real testimonial."
-          </p>
-          <p style="font-size: var(--fs-small); font-weight: 700; text-transform: uppercase; letter-spacing: var(--tracking-wide); color: var(--color-blue-600);">
-            Noel Patricks
-          </p>
-        </div>
-
-        <div style="border-top: var(--border-hairline-wash); padding-top: var(--space-md);">
-          <p style="font-family: var(--font-display); font-size: var(--fs-body-lg); margin-bottom: var(--space-sm);">
-            "Placeholder quote &mdash; pending Gabriel's real testimonial."
-          </p>
-          <p style="font-size: var(--fs-small); font-weight: 700; text-transform: uppercase; letter-spacing: var(--tracking-wide); color: var(--color-blue-600);">
-            MC God Pikin
-          </p>
-        </div>
-
-        <div style="border-top: var(--border-hairline-wash); padding-top: var(--space-md);">
-          <p style="font-family: var(--font-display); font-size: var(--fs-body-lg); margin-bottom: var(--space-sm);">
-            "Placeholder quote &mdash; pending Gabriel's real testimonial."
-          </p>
-          <p style="font-size: var(--fs-small); font-weight: 700; text-transform: uppercase; letter-spacing: var(--tracking-wide); color: var(--color-blue-600);">
-            Funny Sam CFR
-          </p>
-        </div>
-
-        <div style="border-top: var(--border-hairline-wash); padding-top: var(--space-md);">
-          <p style="font-family: var(--font-display); font-size: var(--fs-body-lg); margin-bottom: var(--space-sm);">
-            "Placeholder quote &mdash; pending Gabriel's real testimonial."
-          </p>
-          <p style="font-size: var(--fs-small); font-weight: 700; text-transform: uppercase; letter-spacing: var(--tracking-wide); color: var(--color-blue-600);">
-            Kpanlaboy
-          </p>
-        </div>
-
-        <div style="border-top: var(--border-hairline-wash); padding-top: var(--space-md); border-bottom: var(--border-hairline-wash); padding-bottom: var(--space-md);">
-          <p style="font-family: var(--font-display); font-size: var(--fs-body-lg); margin-bottom: var(--space-sm);">
-            "Placeholder quote &mdash; pending Gabriel's real testimonial."
-          </p>
-          <p style="font-size: var(--fs-small); font-weight: 700; text-transform: uppercase; letter-spacing: var(--tracking-wide); color: var(--color-blue-600);">
-            Philip Electronics
-          </p>
-        </div>
-
+  <section class="testimonials-section">
+    <div class="testimonials-section__head">
+      <div>
+        <span class="testimonials-section__eyebrow">What Clients Say</span>
+        <h2 class="testimonials-section__heading">Testimonials</h2>
+      </div>
+    </div>
+    <div class="testimonials-track">
+      <div class="testimonial-card">
+        <p class="testimonial-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="testimonial-card__quote">"Placeholder quote &mdash; pending Gabriel's real testimonial."</p>
+        <p class="testimonial-card__name">Pastor Dr Nehemiah Aluya</p>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="testimonial-card__quote">"Placeholder quote &mdash; pending Gabriel's real testimonial."</p>
+        <p class="testimonial-card__name">Noel Patricks</p>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="testimonial-card__quote">"Placeholder quote &mdash; pending Gabriel's real testimonial."</p>
+        <p class="testimonial-card__name">MC God Pikin</p>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="testimonial-card__quote">"Placeholder quote &mdash; pending Gabriel's real testimonial."</p>
+        <p class="testimonial-card__name">Funny Sam CFR</p>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="testimonial-card__quote">"Placeholder quote &mdash; pending Gabriel's real testimonial."</p>
+        <p class="testimonial-card__name">Kpanlaboy</p>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="testimonial-card__quote">"Placeholder quote &mdash; pending Gabriel's real testimonial."</p>
+        <p class="testimonial-card__name">Philip Electronics</p>
       </div>
     </div>
   </section>
