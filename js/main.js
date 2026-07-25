@@ -106,20 +106,35 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   })();
 
-  /* ---- FEATURE: Lightbox (stub — activates when gallery images exist) ---- */
+
+  /* ---- FEATURE: Lightbox with prev/next navigation ---- */
   (function initLightbox() {
     try {
-      var triggers = document.querySelectorAll('[data-lightbox]');
+      var triggers = Array.prototype.slice.call(document.querySelectorAll('[data-lightbox]'));
       var lightbox = document.querySelector('.lightbox');
       if (!triggers.length || !lightbox) return;
 
       var lightboxImg = lightbox.querySelector('.lightbox__image');
       var closeBtn = lightbox.querySelector('.lightbox__close');
+      var prevBtn = lightbox.querySelector('.lightbox__nav--prev');
+      var nextBtn = lightbox.querySelector('.lightbox__nav--next');
+      var counter = lightbox.querySelector('.lightbox__counter');
       if (!lightboxImg) return;
 
-      var openLightbox = function (src, alt) {
+      var currentIndex = 0;
+
+      var showAtIndex = function (index) {
+        currentIndex = (index + triggers.length) % triggers.length;
+        var trigger = triggers[currentIndex];
+        var src = trigger.getAttribute('data-lightbox');
+        var alt = trigger.getAttribute('data-alt') || '';
         lightboxImg.src = src;
-        lightboxImg.alt = alt || '';
+        lightboxImg.alt = alt;
+        if (counter) counter.textContent = (currentIndex + 1) + ' / ' + triggers.length;
+      };
+
+      var openLightbox = function (index) {
+        showAtIndex(index);
         lightbox.classList.add('is-open');
         document.body.classList.add('nav-open');
       };
@@ -129,22 +144,25 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.classList.remove('nav-open');
       };
 
-      triggers.forEach(function (trigger) {
+      triggers.forEach(function (trigger, index) {
         trigger.addEventListener('click', function () {
-          var src = trigger.getAttribute('data-lightbox');
-          var alt = trigger.getAttribute('data-alt') || '';
-          openLightbox(src, alt);
+          openLightbox(index);
         });
       });
 
       if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+      if (prevBtn) prevBtn.addEventListener('click', function () { showAtIndex(currentIndex - 1); });
+      if (nextBtn) nextBtn.addEventListener('click', function () { showAtIndex(currentIndex + 1); });
 
       lightbox.addEventListener('click', function (e) {
         if (e.target === lightbox) closeLightbox();
       });
 
       document.addEventListener('keydown', function (e) {
+        if (!lightbox.classList.contains('is-open')) return;
         if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') showAtIndex(currentIndex - 1);
+        if (e.key === 'ArrowRight') showAtIndex(currentIndex + 1);
       });
     } catch (err) {
       console.error('[lightbox]', err);
