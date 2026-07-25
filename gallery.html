@@ -123,7 +123,13 @@
   .gallery-hero {
     padding: calc(var(--header-height) + var(--space-md)) var(--container-pad) var(--space-lg);
     background: var(--gradient-wash);
-    text-align: center;
+  }
+  .gallery-hero__inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    display: grid;
+    gap: var(--space-sm);
+    align-items: center;
   }
   .gallery-hero__eyebrow {
     display: block;
@@ -137,9 +143,29 @@
   }
   .gallery-hero__heading {
     font-family: var(--font-display);
-    font-size: clamp(2.2rem, 9vw, 3.5rem);
+    font-size: clamp(2.2rem, 9vw, 3.2rem);
     color: var(--color-text-on-wash);
+    line-height: 1.05;
+    margin: 0 0 var(--space-sm);
+  }
+  .gallery-hero__lede {
+    font-family: var(--font-structural);
+    font-size: 0.9rem;
+    color: var(--color-text-on-wash-muted);
+    max-width: 34ch;
     margin: 0;
+  }
+  .gallery-hero__photo {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+    margin-top: var(--space-md);
+  }
+  @media (min-width: 900px) {
+    .gallery-hero__inner { grid-template-columns: 1fr 1fr; }
+    .gallery-hero__photo { margin-top: 0; }
   }
   .filter-bar button {
     border-radius: 999px;
@@ -218,8 +244,14 @@
 
   <!-- PAGE HEADER -->
   <section class="gallery-hero">
-    <span class="gallery-hero__eyebrow">Recent Work</span>
-    <h1 class="gallery-hero__heading">Gallery</h1>
+    <div class="gallery-hero__inner">
+      <div>
+        <span class="gallery-hero__eyebrow">Recent Work</span>
+        <h1 class="gallery-hero__heading">Gallery</h1>
+        <p class="gallery-hero__lede">A closer look at real fittings and finished pieces &mdash; from weddings to corporate wear to everyday style.</p>
+      </div>
+      <img src="images/gallery-hero-placeholder.jpg" alt="Gabyhart Stitches recent work" class="gallery-hero__photo" loading="lazy">
+    </div>
   </section>
 
   <!-- FILTERABLE GALLERY -->
