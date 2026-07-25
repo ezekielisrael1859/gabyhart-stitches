@@ -89,6 +89,66 @@
     align-items: center;
     justify-content: center;
   }
+  .gallery-hero {
+    padding: calc(var(--header-height) + var(--space-md)) var(--container-pad) var(--space-lg);
+    background: var(--gradient-wash);
+    text-align: center;
+  }
+  .gallery-hero__eyebrow {
+    display: block;
+    font-family: var(--font-structural);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--color-blue-600);
+    margin-bottom: var(--space-2xs);
+  }
+  .gallery-hero__heading {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 9vw, 3.5rem);
+    color: var(--color-text-on-wash);
+    margin: 0;
+  }
+  .filter-bar button {
+    border-radius: 999px;
+  }
+  .gallery-grid img {
+    border-radius: 10px;
+    transition: transform var(--duration-fast) var(--ease-standard);
+  }
+  .gallery-grid img:active {
+    transform: scale(0.97);
+  }
+  .gallery-cta {
+    background: var(--color-navy-ink);
+    color: var(--color-text-on-dark);
+    padding: var(--space-xl) var(--container-pad);
+  }
+  .gallery-cta__inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    display: grid;
+    gap: var(--space-lg);
+    align-items: center;
+  }
+  .gallery-cta__heading {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 7vw, 2.6rem);
+    line-height: 1.15;
+    margin: 0 0 var(--space-md);
+  }
+  .gallery-cta__photo {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+  }
+  @media (min-width: 900px) {
+    .gallery-cta__inner { grid-template-columns: 1fr 1fr; text-align: left; }
+    .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+  }
 </style>
 </head>
 <body>
@@ -126,11 +186,9 @@
 <main>
 
   <!-- PAGE HEADER -->
-  <section class="section section--dark" style="padding-top: var(--space-3xl); padding-bottom: var(--space-md);">
-    <div class="container">
-      <span class="eyebrow">Recent Work</span>
-      <h1 class="display-heading hero-heading">Gallery</h1>
-    </div>
+  <section class="gallery-hero">
+    <span class="gallery-hero__eyebrow">Recent Work</span>
+    <h1 class="gallery-hero__heading">Gallery</h1>
   </section>
 
   <!-- FILTERABLE GALLERY -->
@@ -157,10 +215,13 @@
   </section>
 
   <!-- FINAL CTA -->
-  <section class="section section--dark reveal" style="text-align: center;">
-    <div class="container">
-      <h2 class="display-heading" style="font-size: var(--fs-h1);">Ready when you are.</h2>
-      <a href="booking.html" class="btn btn--primary" style="margin-top: var(--space-md);">Book a Fitting</a>
+  <section class="gallery-cta">
+    <div class="gallery-cta__inner">
+      <img src="images/gallery-cta-placeholder.jpg" alt="Gabyhart Stitches craftsmanship" class="gallery-cta__photo" loading="lazy">
+      <div style="text-align: center;">
+        <h2 class="gallery-cta__heading">Ready when you are.</h2>
+        <a href="booking.html" class="btn btn--primary">Book a Fitting</a>
+      </div>
     </div>
   </section>
 
