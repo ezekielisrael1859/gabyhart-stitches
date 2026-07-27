@@ -112,6 +112,7 @@
     object-fit: cover;
     width: 100%;
     margin-bottom: var(--space-xs);
+    border-radius: 10px;
   }
   .product-card__name {
     font-family: var(--font-display);
@@ -123,7 +124,14 @@
     color: var(--color-text-on-wash-muted);
   }
   .product-card__note {
-    font-size: var(--fs-label);
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    background: var(--color-wash-pale);
+    padding: 2px 8px;
+    border-radius: 999px;
     color: var(--color-blue-600);
     text-transform: uppercase;
     letter-spacing: var(--tracking-wide);
