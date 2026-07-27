@@ -135,9 +135,9 @@ p {
 }
 
 .btn--primary {
-  background: var(--color-sky-400);
+  background: var(--color-navy-ink);
   color: #ffffff;
-  border-color: var(--color-sky-400);
+  border-color: var(--color-navy-ink);
 }
 .btn--primary:hover { background: var(--color-blue-600); border-color: var(--color-blue-600); }
 
@@ -388,7 +388,8 @@ body.nav-open { overflow: hidden; }
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-cobalt-900);
+  background: var(--color-sky-400);
+  box-shadow: 0 4px 14px rgba(6,15,61,0.35);
   border: var(--border-hairline-sky);
   opacity: 0;
   visibility: hidden;
