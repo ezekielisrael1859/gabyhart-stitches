@@ -242,6 +242,45 @@
   @media (min-width: 900px) {
     .gallery-trust { grid-template-columns: repeat(4, 1fr); }
   }
+  .gallery-work__head {
+    margin-bottom: var(--space-sm);
+  }
+  .gallery-work__eyebrow {
+    display: block;
+    font-family: var(--font-structural);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--color-blue-600);
+    margin-bottom: var(--space-2xs);
+  }
+  .gallery-work__heading {
+    font-family: var(--font-display);
+    font-size: var(--fs-h2);
+    color: var(--color-text-on-wash);
+    margin: 0;
+  }
+  .gallery-card {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .gallery-card__badge {
+    position: absolute;
+    top: var(--space-2xs);
+    left: var(--space-2xs);
+    background: rgba(6,15,61,0.7);
+    color: #ffffff;
+    font-family: var(--font-structural);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 999px;
+    z-index: 1;
+  }
 </style>
 </head>
 <body>
@@ -294,6 +333,11 @@
   <section class="section section--light reveal">
     <div class="container">
 
+      <div class="gallery-work__head">
+        <span class="gallery-work__eyebrow">Browse By</span>
+        <h2 class="gallery-work__heading">The Work</h2>
+      </div>
+
       <div class="filter-bar">
         <button data-filter="all" class="is-active">All</button>
         <button data-filter="weddings">Weddings</button>
@@ -302,12 +346,30 @@
       </div>
 
       <div class="gallery-grid">
-        <img data-category="weddings" data-lightbox="images/gallery-weddings-01.jpg" data-alt="Wedding tailoring look 1" src="images/gallery-weddings-01.jpg" alt="Wedding tailoring look 1" loading="lazy">
-        <img data-category="weddings" data-lightbox="images/gallery-weddings-02.jpg" data-alt="Wedding tailoring look 2" src="images/gallery-weddings-02.jpg" alt="Wedding tailoring look 2" loading="lazy">
-        <img data-category="corporate" data-lightbox="images/gallery-corporate-01.jpg" data-alt="Corporate tailoring look 1" src="images/gallery-corporate-01.jpg" alt="Corporate tailoring look 1" loading="lazy">
-        <img data-category="corporate" data-lightbox="images/gallery-corporate-02.jpg" data-alt="Corporate tailoring look 2" src="images/gallery-corporate-02.jpg" alt="Corporate tailoring look 2" loading="lazy">
-        <img data-category="everyday" data-lightbox="images/gallery-everyday-01.jpg" data-alt="Everyday tailoring look 1" src="images/gallery-everyday-01.jpg" alt="Everyday tailoring look 1" loading="lazy">
-        <img data-category="everyday" data-lightbox="images/gallery-everyday-02.jpg" data-alt="Everyday tailoring look 2" src="images/gallery-everyday-02.jpg" alt="Everyday tailoring look 2" loading="lazy">
+        <div class="gallery-card" data-category="weddings">
+          <span class="gallery-card__badge">Wedding</span>
+          <img data-lightbox="images/gallery-weddings-01.jpg" data-alt="Wedding tailoring look 1" src="images/gallery-weddings-01.jpg" alt="Wedding tailoring look 1" loading="lazy">
+        </div>
+        <div class="gallery-card" data-category="weddings">
+          <span class="gallery-card__badge">Wedding</span>
+          <img data-lightbox="images/gallery-weddings-02.jpg" data-alt="Wedding tailoring look 2" src="images/gallery-weddings-02.jpg" alt="Wedding tailoring look 2" loading="lazy">
+        </div>
+        <div class="gallery-card" data-category="corporate">
+          <span class="gallery-card__badge">Corporate</span>
+          <img data-lightbox="images/gallery-corporate-01.jpg" data-alt="Corporate tailoring look 1" src="images/gallery-corporate-01.jpg" alt="Corporate tailoring look 1" loading="lazy">
+        </div>
+        <div class="gallery-card" data-category="corporate">
+          <span class="gallery-card__badge">Corporate</span>
+          <img data-lightbox="images/gallery-corporate-02.jpg" data-alt="Corporate tailoring look 2" src="images/gallery-corporate-02.jpg" alt="Corporate tailoring look 2" loading="lazy">
+        </div>
+        <div class="gallery-card" data-category="everyday">
+          <span class="gallery-card__badge">Everyday</span>
+          <img data-lightbox="images/gallery-everyday-01.jpg" data-alt="Everyday tailoring look 1" src="images/gallery-everyday-01.jpg" alt="Everyday tailoring look 1" loading="lazy">
+        </div>
+        <div class="gallery-card" data-category="everyday">
+          <span class="gallery-card__badge">Everyday</span>
+          <img data-lightbox="images/gallery-everyday-02.jpg" data-alt="Everyday tailoring look 2" src="images/gallery-everyday-02.jpg" alt="Everyday tailoring look 2" loading="lazy">
+        </div>
       </div>
 
     </div>
