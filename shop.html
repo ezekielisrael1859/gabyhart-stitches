@@ -26,11 +26,12 @@
 <style>
   .shop-tabs {
     display: flex;
-    border: var(--border-hairline-sky);
+    gap: var(--space-sm);
+    flex-wrap: wrap;
     margin-bottom: var(--space-lg);
   }
   .shop-tabs__btn {
-    flex: 1;
+    flex: none;
     font-family: var(--font-structural);
     font-weight: 800;
     text-transform: uppercase;
@@ -39,13 +40,10 @@
     padding: var(--space-sm) var(--space-xs);
     background: transparent;
     color: var(--color-text-on-wash-muted);
-    border: none;
+    border: var(--border-hairline-sky);
     cursor: pointer;
     transition: background var(--duration-fast) var(--ease-standard),
                 color var(--duration-fast) var(--ease-standard);
-  }
-  .shop-tabs__btn:not(:last-child) {
-    border-right: var(--border-hairline-sky);
   }
   .shop-tabs__btn.is-active {
     background: var(--color-sky-400);
@@ -618,7 +616,7 @@
       <p style="max-width: 42ch; color: var(--color-text-on-wash-muted); margin-bottom: var(--space-md); margin-left: auto; margin-right: auto;">
         Every piece can be built to your exact measurements. Book a fitting and we'll take it from there.
       </p>
-      <a href="booking.html" class="btn btn--outline">Book a Fitting</a>
+      <a href="booking.html" class="btn btn--primary">Book a Fitting</a>
     </div>
   </section>
 
