@@ -123,6 +123,52 @@
     letter-spacing: var(--tracking-wide);
     font-size: var(--fs-label);
   }
+  .booking-hero {
+    padding: calc(var(--header-height) + var(--space-md)) var(--container-pad) var(--space-lg);
+    background: var(--gradient-wash);
+  }
+  .booking-hero__inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: var(--space-sm);
+    align-items: start;
+  }
+  .booking-hero__eyebrow {
+    display: block;
+    font-family: var(--font-structural);
+    font-size: var(--fs-label);
+    font-weight: 700;
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--color-blue-600);
+    margin-bottom: var(--space-2xs);
+  }
+  .booking-hero__heading {
+    font-family: var(--font-display);
+    font-size: var(--fs-h1);
+    color: var(--color-text-on-wash);
+    line-height: 1.05;
+    margin: 0 0 var(--space-sm);
+  }
+  .booking-hero__lede {
+    font-family: var(--font-structural);
+    font-size: 0.9rem;
+    color: var(--color-text-on-wash-muted);
+    max-width: 34ch;
+    margin: 0;
+  }
+  .booking-hero__photo {
+    width: 100%;
+    aspect-ratio: 3 / 3.6;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+  }
+  @media (min-width: 900px) {
+    .booking-hero__inner { grid-template-columns: 1fr 1fr; }
+  }
 </style>
 </head>
 <body>
@@ -159,10 +205,14 @@
 
 <main>
 
-  <section class="section section--dark" style="padding-top: var(--space-3xl); padding-bottom: var(--space-md);">
-    <div class="container">
-      <span class="eyebrow">Custom Order</span>
-      <h1 class="display-heading hero-heading">Book a Fitting</h1>
+  <section class="booking-hero">
+    <div class="booking-hero__inner">
+      <div>
+        <span class="booking-hero__eyebrow">Custom Order</span>
+        <h1 class="booking-hero__heading">Book a Fitting</h1>
+        <p class="booking-hero__lede">Tell us what you're booking and we'll take it from there &mdash; five quick steps to your custom piece.</p>
+      </div>
+      <img src="images/booking-hero-placeholder.jpg" alt="Gabyhart Stitches fitting session" class="booking-hero__photo" loading="lazy">
     </div>
   </section>
 
