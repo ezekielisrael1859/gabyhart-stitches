@@ -78,6 +78,52 @@
     color: var(--color-text-on-wash-muted);
     max-width: 46ch;
   }
+  .contact-hero {
+    padding: calc(var(--header-height) + var(--space-md)) var(--container-pad) var(--space-lg);
+    background: var(--gradient-wash);
+  }
+  .contact-hero__inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: var(--space-sm);
+    align-items: start;
+  }
+  .contact-hero__eyebrow {
+    display: block;
+    font-family: var(--font-structural);
+    font-size: var(--fs-label);
+    font-weight: 700;
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--color-blue-600);
+    margin-bottom: var(--space-2xs);
+  }
+  .contact-hero__heading {
+    font-family: var(--font-display);
+    font-size: var(--fs-h1);
+    color: var(--color-text-on-wash);
+    line-height: 1.05;
+    margin: 0 0 var(--space-sm);
+  }
+  .contact-hero__lede {
+    font-family: var(--font-structural);
+    font-size: 0.9rem;
+    color: var(--color-text-on-wash-muted);
+    max-width: 34ch;
+    margin: 0;
+  }
+  .contact-hero__photo {
+    width: 100%;
+    aspect-ratio: 3 / 3.6;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+  }
+  @media (min-width: 900px) {
+    .contact-hero__inner { grid-template-columns: 1fr 1fr; }
+  }
 </style>
 </head>
 <body>
@@ -115,10 +161,14 @@
 <main>
 
   <!-- PAGE HEADER -->
-  <section class="section section--dark" style="padding-top: var(--space-3xl); padding-bottom: var(--space-md);">
-    <div class="container">
-      <span class="eyebrow">Get In Touch</span>
-      <h1 class="display-heading hero-heading">Contact &amp; FAQ</h1>
+  <section class="contact-hero">
+    <div class="contact-hero__inner">
+      <div>
+        <span class="contact-hero__eyebrow">Get In Touch</span>
+        <h1 class="contact-hero__heading">Contact &amp; FAQ</h1>
+        <p class="contact-hero__lede">Reach out on WhatsApp, phone, or email &mdash; or check the answers below first.</p>
+      </div>
+      <img src="images/contact-hero-placeholder.jpg" alt="Gabyhart Stitches contact" class="contact-hero__photo" loading="lazy">
     </div>
   </section>
 
