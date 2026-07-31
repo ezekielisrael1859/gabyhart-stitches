@@ -101,6 +101,40 @@
   @media (min-width: 900px) {
     .training-hero__inner { grid-template-columns: 1fr 1fr; }
   }
+  .ledger {
+    margin-top: var(--space-lg);
+  }
+  .ledger__category {
+    font-family: var(--font-structural);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+    font-size: var(--fs-label);
+    color: var(--color-blue-600);
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-sm);
+  }
+  .ledger__category:first-child { margin-top: 0; }
+  .ledger__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-md);
+    padding: var(--space-sm) 0;
+    border-bottom: var(--border-hairline-wash);
+  }
+  .ledger__name {
+    text-align: left;
+    font-family: var(--font-display);
+    font-size: var(--fs-body-lg);
+  }
+  .ledger__price {
+    font-family: var(--font-structural);
+    font-weight: 700;
+    font-size: var(--fs-body);
+    white-space: nowrap;
+    text-align: right;
+  }
 </style>
 </head>
 <body>
@@ -193,7 +227,7 @@
     </div>
   </section>
 
-  <section class="section section--dark reveal">
+  <section class="section section--light reveal">
     <div class="container">
       <p class="eyebrow">Programs &amp; Pricing</p>
       <h2 class="display-heading">Choose your program</h2>
