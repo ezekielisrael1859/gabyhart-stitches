@@ -577,6 +577,25 @@
   .site-header [data-theme-toggle]:hover {
     background: transparent;
   }
+  .home-hero-full__accent {
+    color: var(--color-sky-400);
+  }
+  .home-hero-full__lede {
+    font-family: var(--font-structural);
+    color: rgba(255,255,255,0.85);
+    font-size: 1rem;
+    max-width: 480px;
+    margin: 0 auto var(--space-md);
+  }
+  .home-hero-full__btn-solid {
+    display: inline-block;
+    background: #fff;
+    color: var(--color-navy-ink);
+    padding: 0.85rem 2rem;
+    border-radius: 4px;
+    font-weight: 600;
+    text-decoration: none;
+  }
 </style>
 </head>
 <body>
@@ -619,13 +638,11 @@
     <div class="home-hero-full__overlay"></div>
     <div class="home-hero-full__content">
       <p class="home-hero-full__eyebrow">📍 Ekpoma, Edo State, Nigeria</p>
-      <h1 class="home-hero-full__headline">GABYHART<br>STITCHES</h1>
-      <p class="home-hero-full__tagline">Tailoring · Craft · Detail</p>
+      <h1 class="home-hero-full__headline">Pay attention to <span class="home-hero-full__accent">details</span>.</h1>
       <hr class="home-hero-full__rule">
-      <p class="home-hero-full__credential">Certified Obioma</p>
+      <p class="home-hero-full__lede">Premium menswear carefully crafted with precision, passion and purpose.</p>
       <div class="home-hero-full__actions">
-        <a href="booking.html" class="btn--primary">Book a Fitting</a>
-        <a href="gallery.html" class="btn--outline">View Gallery</a>
+        <a href="gallery.html" class="home-hero-full__btn-solid">View Gallery</a>
       </div>
     </div>
   </section>
