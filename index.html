@@ -451,6 +451,78 @@
     .product-card { flex: none; }
     .home-trust { grid-template-columns: repeat(4, 1fr); }
   }
+  .home-hero-full {
+    position: relative;
+    min-height: 92vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    padding: var(--space-lg) var(--space-md);
+  }
+  .home-hero-full__bg {
+    position: absolute;
+    inset: 0;
+    background: url('images/hero-poster.jpg') center 20% / cover no-repeat;
+    z-index: 0;
+  }
+  .home-hero-full__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10,20,40,0.55) 0%, rgba(8,16,32,0.75) 55%, rgba(6,12,26,0.9) 100%);
+    z-index: 1;
+  }
+  .home-hero-full__content {
+    position: relative;
+    z-index: 2;
+    max-width: 640px;
+  }
+  .home-hero-full__eyebrow {
+    color: var(--color-sky-400);
+    font-family: var(--font-structural);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    margin-bottom: var(--space-sm);
+  }
+  .home-hero-full__headline {
+    font-family: var(--font-display);
+    color: #fff;
+    font-size: clamp(2.75rem, 9vw, 4.5rem);
+    line-height: 1.05;
+    margin: 0 0 var(--space-sm);
+  }
+  .home-hero-full__tagline {
+    color: var(--color-sky-400);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    margin-bottom: var(--space-sm);
+  }
+  .home-hero-full__rule {
+    width: 48px;
+    height: 1px;
+    background: var(--color-sky-400);
+    border: none;
+    margin: var(--space-sm) auto;
+  }
+  .home-hero-full__credential {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: rgba(255,255,255,0.85);
+    font-size: 1rem;
+    margin-bottom: var(--space-md);
+  }
+  .home-hero-full__actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    align-items: center;
+  }
+  @media (min-width: 600px) {
+    .home-hero-full__actions { flex-direction: row; justify-content: center; }
+  }
 </style>
 </head>
 <body>
@@ -486,23 +558,20 @@
 </nav>
 
 <main>
-
   <!-- ===== HERO ===== -->
-  <section class="home-hero">
-    <div class="home-hero__inner">
-      <div class="home-hero__body">
-        <p class="home-hero__eyebrow">📍 Ekpoma, Edo State, Nigeria</p>
-        <h1 class="home-hero__headline">Pay attention<br>to <em>details.</em></h1>
-        <hr class="home-hero__rule">
-        <p class="home-hero__lede">Premium menswear carefully crafted with precision, passion and purpose.</p>
-        <div class="home-hero__actions">
-          <a href="booking.html" class="btn-hero-primary">Book a Fitting <span>&rarr;</span></a>
-          <a href="gallery.html" class="btn-hero-secondary">View Gallery <span>&#9634;</span></a>
-        </div>
-      </div>
-      <div class="home-hero__photo-wrap">
-        <img src="images/hero-placeholder.jpg" alt="Model wearing a Gabyhart Stitches navy senator" class="home-hero__photo">
-        <span class="home-hero__badge">Premium Quality · Perfect Fit</span>
+  <!-- ===== HERO ===== -->
+  <section class="home-hero-full">
+    <div class="home-hero-full__bg"></div>
+    <div class="home-hero-full__overlay"></div>
+    <div class="home-hero-full__content">
+      <p class="home-hero-full__eyebrow">📍 Ekpoma, Edo State, Nigeria</p>
+      <h1 class="home-hero-full__headline">GABYHART<br>STITCHES</h1>
+      <p class="home-hero-full__tagline">Tailoring · Craft · Detail</p>
+      <hr class="home-hero-full__rule">
+      <p class="home-hero-full__credential">Certified Obioma</p>
+      <div class="home-hero-full__actions">
+        <a href="booking.html" class="btn--primary">Book a Fitting</a>
+        <a href="gallery.html" class="btn--outline">View Gallery</a>
       </div>
     </div>
   </section>
