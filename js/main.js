@@ -334,3 +334,20 @@ function initThemeToggle() {
     applyTheme(isDark ? 'light' : 'dark');
   });
 }
+
+function initStoryVideoAutoplay() {
+  var video = document.querySelector('.home-story__video');
+  if (!video) return;
+  if (!('IntersectionObserver' in window)) { video.play().catch(function(){}); return; }
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        video.play().catch(function(){});
+      } else {
+        video.pause();
+      }
+    });
+  }, { threshold: 0.4 });
+  observer.observe(video);
+}
+document.addEventListener('DOMContentLoaded', initStoryVideoAutoplay);
